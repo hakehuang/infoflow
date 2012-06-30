@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Ruby on Rails: Welcome aboard</title>
+  </head>
+  <body>
+
+  <% if ! user_signed_in?   %>
+  <%= render :template => 'admin/sessions/new' %>
+  <% end  %>
+   
+  </body>
+</html>

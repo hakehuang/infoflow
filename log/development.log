@@ -1,0 +1,326 @@
+
+
+Started GET "/assets/rails.png" for 10.0.3.2 at Sat Jun 30 22:00:26 +0800 2012
+Served asset /rails.png - 200 OK (31ms)
+
+
+Started GET "/assets/rails.png" for 10.0.3.2 at Sat Jun 30 23:11:08 +0800 2012
+Served asset /rails.png - 200 OK (15ms)
+
+
+Started GET "/" for 10.0.3.2 at Sat Jun 30 23:16:48 +0800 2012
+Processing by HomeController#index as HTML
+  Rendered /usr/lib/ruby/gems/1.8/gems/devise-2.0.4/app/views/devise/sessions/new.html.erb (18.9ms)
+  Rendered home/index.html.erb within layouts/application (25.6ms)
+Completed 500 Internal Server Error in 92ms
+
+ActionView::Template::Error (undefined local variable or method `resource' for #<#<Class:0xb6d993cc>:0xb6d94cf0>):
+    1: <h2>Sign in</h2>
+    2: 
+    3: <%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
+    4:   <div><%= f.label :email %><br />
+    5:   <%= f.email_field :email %></div>
+    6: 
+  app/views/home/index.html.erb:9:in `_app_views_home_index_html_erb__775405688__613697598'
+  app/controllers/home_controller.rb:5:in `index'
+
+
+  Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.2.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.2ms)
+  Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.2.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.1ms)
+  Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.2.3/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (18.0ms)
+
+
+Started GET "/" for 10.0.3.2 at Sun Jul 01 00:00:38 +0800 2012
+Processing by HomeController#index as HTML
+  Rendered /usr/lib/ruby/gems/1.8/gems/devise-2.0.4/app/views/devise/sessions/new.html.erb (18.2ms)
+  Rendered home/index.html.erb within layouts/application (24.4ms)
+Completed 500 Internal Server Error in 37ms
+
+ActionView::Template::Error (undefined local variable or method `resource' for #<#<Class:0xb6ca0b28>:0xb6c9f32c>):
+    1: <h2>Sign in</h2>
+    2: 
+    3: <%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
+    4:   <div><%= f.label :email %><br />
+    5:   <%= f.email_field :email %></div>
+    6: 
+  app/views/home/index.html.erb:9:in `_app_views_home_index_html_erb__775405688__614164388'
+  app/controllers/home_controller.rb:5:in `index'
+
+
+  Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.2.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (0.2ms)
+  Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.2.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.2ms)
+  Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.2.3/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (14.8ms)
+
+
+Started GET "/" for 10.0.3.2 at Sun Jul 01 00:06:01 +0800 2012
+Processing by HomeController#index as HTML
+  Rendered /usr/lib/ruby/gems/1.8/gems/devise-2.0.4/app/views/devise/sessions/new.html.erb (304.1ms)
+  Rendered home/index.html.erb within layouts/application (316.3ms)
+Completed 500 Internal Server Error in 334ms
+
+ActionView::Template::Error (Could not find table 'admins'):
+    1: <h2>Sign in</h2>
+    2: 
+    3: <%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
+    4:   <div><%= f.label :email %><br />
+    5:   <%= f.email_field :email %></div>
+    6: 
+  app/helpers/application_helper.rb:7:in `new'
+  app/helpers/application_helper.rb:7:in `resource'
+  app/views/home/index.html.erb:9:in `_app_views_home_index_html_erb__775405688__613660748'
+  app/controllers/home_controller.rb:5:in `index'
+
+
+  Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.2.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (2.7ms)
+  Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.2.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.7ms)
+  Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.2.3/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (28.1ms)
+  [1m[36m (0.2ms)[0m  [1mselect sqlite_version(*)[0m
+  [1m[35m (34.8ms)[0m  CREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) 
+  [1m[36m (0.1ms)[0m  [1mPRAGMA index_list("schema_migrations")[0m
+  [1m[35m (15.6ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36m (0.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+Migrating to DeviseCreateAdmins (20120630135521)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.8ms)[0m  [1mCREATE TABLE "admins" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar(255) DEFAULT '' NOT NULL, "encrypted_password" varchar(255) DEFAULT '' NOT NULL, "reset_password_token" varchar(255), "reset_password_sent_at" datetime, "remember_created_at" datetime, "sign_in_count" integer DEFAULT 0, "current_sign_in_at" datetime, "last_sign_in_at" datetime, "current_sign_in_ip" varchar(255), "last_sign_in_ip" varchar(255), "confirmation_token" varchar(255), "confirmed_at" datetime, "confirmation_sent_at" datetime, "unconfirmed_email" varchar(255), "failed_attempts" integer DEFAULT 0, "unlock_token" varchar(255), "locked_at" datetime, "authentication_token" varchar(255), "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (0.1ms)[0m  PRAGMA index_list("admins")
+  [1m[36m (9.2ms)[0m  [1mCREATE UNIQUE INDEX "index_admins_on_email" ON "admins" ("email")[0m
+  [1m[35m (0.1ms)[0m  PRAGMA index_list("admins")
+  [1m[36m (0.1ms)[0m  [1mPRAGMA index_info('index_admins_on_email')[0m
+  [1m[35m (0.3ms)[0m  CREATE UNIQUE INDEX "index_admins_on_reset_password_token" ON "admins" ("reset_password_token")
+  [1m[36m (0.1ms)[0m  [1mPRAGMA index_list("admins")[0m
+  [1m[35m (0.1ms)[0m  PRAGMA index_info('index_admins_on_reset_password_token')
+  [1m[36m (0.0ms)[0m  [1mPRAGMA index_info('index_admins_on_email')[0m
+  [1m[35m (0.2ms)[0m  CREATE UNIQUE INDEX "index_admins_on_confirmation_token" ON "admins" ("confirmation_token")
+  [1m[36m (0.1ms)[0m  [1mPRAGMA index_list("admins")[0m
+  [1m[35m (0.0ms)[0m  PRAGMA index_info('index_admins_on_confirmation_token')
+  [1m[36m (0.0ms)[0m  [1mPRAGMA index_info('index_admins_on_reset_password_token')[0m
+  [1m[35m (0.0ms)[0m  PRAGMA index_info('index_admins_on_email')
+  [1m[36m (0.2ms)[0m  [1mCREATE UNIQUE INDEX "index_admins_on_unlock_token" ON "admins" ("unlock_token")[0m
+  [1m[35m (0.1ms)[0m  PRAGMA index_list("admins")
+  [1m[36m (0.0ms)[0m  [1mPRAGMA index_info('index_admins_on_unlock_token')[0m
+  [1m[35m (0.1ms)[0m  PRAGMA index_info('index_admins_on_confirmation_token')
+  [1m[36m (0.0ms)[0m  [1mPRAGMA index_info('index_admins_on_reset_password_token')[0m
+  [1m[35m (0.0ms)[0m  PRAGMA index_info('index_admins_on_email')
+  [1m[36m (0.2ms)[0m  [1mCREATE UNIQUE INDEX "index_admins_on_authentication_token" ON "admins" ("authentication_token")[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('20120630135521')
+  [1m[36m (18.2ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  select sqlite_version(*)
+  [1m[36m (0.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+  [1m[35m (0.1ms)[0m  PRAGMA index_list("admins")
+  [1m[36m (0.0ms)[0m  [1mPRAGMA index_info('index_admins_on_authentication_token')[0m
+  [1m[35m (0.0ms)[0m  PRAGMA index_info('index_admins_on_unlock_token')
+  [1m[36m (0.1ms)[0m  [1mPRAGMA index_info('index_admins_on_confirmation_token')[0m
+  [1m[35m (0.0ms)[0m  PRAGMA index_info('index_admins_on_reset_password_token')
+  [1m[36m (0.0ms)[0m  [1mPRAGMA index_info('index_admins_on_email')[0m
+
+
+Started GET "/" for 10.0.3.2 at Sun Jul 01 00:37:52 +0800 2012
+Processing by HomeController#index as HTML
+  Rendered /usr/lib/ruby/gems/1.8/gems/devise-2.0.4/app/views/devise/sessions/new.html.erb (220.2ms)
+  Rendered home/index.html.erb within layouts/application (229.5ms)
+Completed 500 Internal Server Error in 254ms
+
+ActionView::Template::Error (undefined method `admins_session_path' for #<ActionDispatch::Routing::RoutesProxy:0xb6fd9e5c>):
+    1: <h2>Sign in</h2>
+    2: 
+    3: <%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
+    4:   <div><%= f.label :email %><br />
+    5:   <%= f.email_field :email %></div>
+    6: 
+  app/views/home/index.html.erb:9:in `_app_views_home_index_html_erb__775405688__613749008'
+  app/controllers/home_controller.rb:5:in `index'
+
+
+  Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.2.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.8ms)
+  Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.2.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.3ms)
+  Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.2.3/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (32.3ms)
+
+
+Started GET "/" for 10.0.3.2 at Sun Jul 01 01:03:55 +0800 2012
+Processing by HomeController#index as HTML
+  Rendered home/index.html.erb within layouts/application (2.0ms)
+Compiled home.css  (45ms)  (pid 11285)
+Compiled application.css  (60ms)  (pid 11285)
+Compiled jquery.js  (15ms)  (pid 11285)
+Compiled jquery_ujs.js  (1ms)  (pid 11285)
+Compiled home.js  (1110ms)  (pid 11285)
+Compiled application.js  (1327ms)  (pid 11285)
+Completed 200 OK in 1778ms (Views: 1777.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 10.0.3.2 at Sun Jul 01 01:05:15 +0800 2012
+Served asset /application.css - 200 OK (17ms)
+
+
+Started GET "/assets/home.css?body=1" for 10.0.3.2 at Sun Jul 01 01:05:15 +0800 2012
+Served asset /home.css - 200 OK (3ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 10.0.3.2 at Sun Jul 01 01:05:15 +0800 2012
+Served asset /jquery.js - 200 OK (20ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 10.0.3.2 at Sun Jul 01 01:05:15 +0800 2012
+Served asset /jquery_ujs.js - 200 OK (11ms)
+
+
+Started GET "/assets/home.js?body=1" for 10.0.3.2 at Sun Jul 01 01:05:15 +0800 2012
+Served asset /home.js - 200 OK (5ms)
+
+
+Started GET "/assets/application.js?body=1" for 10.0.3.2 at Sun Jul 01 01:05:15 +0800 2012
+Served asset /application.js - 200 OK (19ms)
+
+
+Started GET "/" for 10.0.3.2 at Sun Jul 01 03:12:23 +0800 2012
+Processing by HomeController#index as HTML
+  Rendered home/index.html.erb within layouts/application (23.5ms)
+Completed 500 Internal Server Error in 36ms
+
+ActionView::Template::Error (undefined method `user_signed_in?' for #<#<Class:0xb6d620d4>:0xb6d608d8>):
+    5:   </head>
+    6:   <body>
+    7: 
+    8:   <% if ! user_signed_in?   %>
+    9:   <%= render :template => 'admin/sessions/new' %>
+    10:   <% end  %>
+    11:    
+  app/views/home/index.html.erb:8:in `_app_views_home_index_html_erb__775405688__613768398'
+  app/controllers/home_controller.rb:5:in `index'
+
+
+  Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.2.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.4ms)
+  Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.2.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.6ms)
+  Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.2.3/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (14.8ms)
+
+
+Started GET "/" for 10.0.3.2 at Sun Jul 01 03:15:02 +0800 2012
+Processing by HomeController#index as HTML
+Completed 500 Internal Server Error in 2ms
+
+NoMethodError (undefined method `authenticate_user!' for #<HomeController:0xb6deb67c>):
+  activesupport (3.2.3) lib/active_support/callbacks.rb:418:in `_run__738958071__process_action__199225275__callbacks'
+  activesupport (3.2.3) lib/active_support/callbacks.rb:405:in `send'
+  activesupport (3.2.3) lib/active_support/callbacks.rb:405:in `__run_callback'
+  activesupport (3.2.3) lib/active_support/callbacks.rb:385:in `_run_process_action_callbacks'
+  activesupport (3.2.3) lib/active_support/callbacks.rb:81:in `send'
+  activesupport (3.2.3) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (3.2.3) lib/abstract_controller/callbacks.rb:17:in `process_action'
+  actionpack (3.2.3) lib/action_controller/metal/rescue.rb:29:in `process_action'
+  actionpack (3.2.3) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+  activesupport (3.2.3) lib/active_support/notifications.rb:123:in `instrument'
+  activesupport (3.2.3) lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  activesupport (3.2.3) lib/active_support/notifications.rb:123:in `instrument'
+  actionpack (3.2.3) lib/action_controller/metal/instrumentation.rb:29:in `process_action'
+  actionpack (3.2.3) lib/action_controller/metal/params_wrapper.rb:205:in `process_action'
+  activerecord (3.2.3) lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+  actionpack (3.2.3) lib/abstract_controller/base.rb:121:in `process'
+  actionpack (3.2.3) lib/abstract_controller/rendering.rb:45:in `process'
+  actionpack (3.2.3) lib/action_controller/metal.rb:203:in `dispatch'
+  actionpack (3.2.3) lib/action_controller/metal/rack_delegation.rb:14:in `dispatch'
+  actionpack (3.2.3) lib/action_controller/metal.rb:246:in `action'
+  actionpack (3.2.3) lib/action_dispatch/routing/route_set.rb:73:in `call'
+  actionpack (3.2.3) lib/action_dispatch/routing/route_set.rb:73:in `dispatch'
+  actionpack (3.2.3) lib/action_dispatch/routing/route_set.rb:36:in `call'
+  journey (1.0.4) lib/journey/router.rb:68:in `call'
+  journey (1.0.4) lib/journey/router.rb:56:in `each'
+  journey (1.0.4) lib/journey/router.rb:56:in `call'
+  actionpack (3.2.3) lib/action_dispatch/routing/route_set.rb:600:in `call'
+  warden (1.1.1) lib/warden/manager.rb:35:in `call'
+  warden (1.1.1) lib/warden/manager.rb:34:in `catch'
+  warden (1.1.1) lib/warden/manager.rb:34:in `call'
+  actionpack (3.2.3) lib/action_dispatch/middleware/best_standards_support.rb:17:in `call'
+  rack (1.4.1) lib/rack/etag.rb:23:in `call'
+  rack (1.4.1) lib/rack/conditionalget.rb:25:in `call'
+  actionpack (3.2.3) lib/action_dispatch/middleware/head.rb:14:in `call'
+  actionpack (3.2.3) lib/action_dispatch/middleware/params_parser.rb:21:in `call'
+  actionpack (3.2.3) lib/action_dispatch/middleware/flash.rb:242:in `call'
+  rack (1.4.1) lib/rack/session/abstract/id.rb:205:in `context'
+  rack (1.4.1) lib/rack/session/abstract/id.rb:200:in `call'
+  actionpack (3.2.3) lib/action_dispatch/middleware/cookies.rb:338:in `call'
+  activerecord (3.2.3) lib/active_record/query_cache.rb:64:in `call'
+  activerecord (3.2.3) lib/active_record/connection_adapters/abstract/connection_pool.rb:467:in `call'
+  actionpack (3.2.3) lib/action_dispatch/middleware/callbacks.rb:28:in `call'
+  activesupport (3.2.3) lib/active_support/callbacks.rb:405:in `_run__397314981__call__4__callbacks'
+  activesupport (3.2.3) lib/active_support/callbacks.rb:405:in `send'
+  activesupport (3.2.3) lib/active_support/callbacks.rb:405:in `__run_callback'
+  activesupport (3.2.3) lib/active_support/callbacks.rb:385:in `_run_call_callbacks'
+  activesupport (3.2.3) lib/active_support/callbacks.rb:81:in `send'
+  activesupport (3.2.3) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (3.2.3) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (3.2.3) lib/action_dispatch/middleware/reloader.rb:65:in `call'
+  actionpack (3.2.3) lib/action_dispatch/middleware/remote_ip.rb:31:in `call'
+  actionpack (3.2.3) lib/action_dispatch/middleware/debug_exceptions.rb:16:in `call'
+  actionpack (3.2.3) lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+  railties (3.2.3) lib/rails/rack/logger.rb:26:in `call_app'
+  railties (3.2.3) lib/rails/rack/logger.rb:16:in `call'
+  actionpack (3.2.3) lib/action_dispatch/middleware/request_id.rb:22:in `call'
+  rack (1.4.1) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.4.1) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.2.3) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.4.1) lib/rack/lock.rb:15:in `call'
+  actionpack (3.2.3) lib/action_dispatch/middleware/static.rb:62:in `call'
+  railties (3.2.3) lib/rails/engine.rb:479:in `call'
+  railties (3.2.3) lib/rails/application.rb:220:in `call'
+  rack (1.4.1) lib/rack/content_length.rb:14:in `call'
+  railties (3.2.3) lib/rails/rack/log_tailer.rb:14:in `call'
+  rack (1.4.1) lib/rack/handler/webrick.rb:59:in `service'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+  rack (1.4.1) lib/rack/handler/webrick.rb:13:in `run'
+  rack (1.4.1) lib/rack/server.rb:265:in `start'
+  railties (3.2.3) lib/rails/commands/server.rb:70:in `start'
+  railties (3.2.3) lib/rails/commands.rb:55
+  railties (3.2.3) lib/rails/commands.rb:50:in `tap'
+  railties (3.2.3) lib/rails/commands.rb:50
+  script/rails:6:in `require'
+  script/rails:6
+
+
+  Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.2.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.6ms)
+  Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.2.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.4ms)
+  Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.2.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (32.1ms)
+
+
+Started GET "/" for 10.0.3.2 at Sun Jul 01 04:13:17 +0800 2012
+Processing by HomeController#index as HTML
+Completed 401 Unauthorized in 84ms
+
+
+Started GET "/admins/sign_in" for 10.0.3.2 at Sun Jul 01 04:13:22 +0800 2012
+Processing by Devise::SessionsController#new as HTML
+  Rendered /usr/lib/ruby/gems/1.8/gems/devise-2.0.4/app/views/devise/_links.erb (11.7ms)
+  Rendered /usr/lib/ruby/gems/1.8/gems/devise-2.0.4/app/views/devise/sessions/new.html.erb within layouts/application (65.3ms)
+Completed 200 OK in 268ms (Views: 159.2ms | ActiveRecord: 2.8ms)
+
+
+Started GET "/assets/application.css?body=1" for 10.0.3.2 at Sun Jul 01 04:14:21 +0800 2012
+Served asset /application.css - 304 Not Modified (52ms)
+
+
+Started GET "/assets/home.css?body=1" for 10.0.3.2 at Sun Jul 01 04:14:21 +0800 2012
+Served asset /home.css - 304 Not Modified (3ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 10.0.3.2 at Sun Jul 01 04:14:21 +0800 2012
+Served asset /jquery.js - 304 Not Modified (11ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 10.0.3.2 at Sun Jul 01 04:14:21 +0800 2012
+Served asset /jquery_ujs.js - 304 Not Modified (4ms)
+
+
+Started GET "/assets/home.js?body=1" for 10.0.3.2 at Sun Jul 01 04:14:21 +0800 2012
+Served asset /home.js - 304 Not Modified (3ms)
+
+
+Started GET "/assets/application.js?body=1" for 10.0.3.2 at Sun Jul 01 04:14:21 +0800 2012
+Served asset /application.js - 304 Not Modified (15ms)
