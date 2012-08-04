@@ -1,2 +1,4 @@
-log/development.log
-./tmp
+.bundle
+db/*.sqlite3
+log/*.log
+tmp/
