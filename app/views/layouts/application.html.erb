@@ -36,8 +36,7 @@ z-index: 100;
 var persistclose=0 //set to 0 or 1. 1 means once the bar is manually closed, it will remain closed for browser session
 var startX = 300 //set x offset of bar in pixels
 var startY = 30 //set y offset of bar in pixels
-var verticalpos="fromtop" //enter "fromtop" or "frombottom"
-var visitor_cnt = 1688
+var verticalpos="frombottom" //enter "fromtop" or "frombottom"
 
 function iecompattest(){
 return (document.compatMode && document.compatMode!="BackCompat")? document.documentElement : document.body
@@ -108,8 +107,8 @@ window.onload=staticbar
 </script>
 </head>
 <body>
-<p class="floatstop"></p>
 <%= yield %>
+<% if notice or alert  %>
 <div id="topbar">
 <a href="" onClick="closebar(); return false"><%= image_tag("close.gif") %>
 <p class="notice">
@@ -117,6 +116,7 @@ window.onload=staticbar
 </p>
 <p class="alert"><%= alert %></p>
 </div>
+<% end %>
 
 </body>
 </html>
