@@ -1,3 +1,10 @@
+
+<% if @page_id == 0  %>
+<div class="customer">
+  <%= render :template => 'customers/index' %>
+</div>
+<% end %>
+
 <div id="dashboard">
 <%= image_tag("toggle.png", :id=>"toggle") %>
 <!--list of widgets-->
@@ -52,10 +59,11 @@
 </script>
 
 
+
 <div id="dashboard-menu">  
         <ul>  
             <li>  
-            <%= image_tag("gauge.png", :mouseover => "gauge_large.png") %> <br> Customer 
+            <%= link_to image_tag("gauge.png", :mouseover => "gauge_large.png"), dashboard_customer_path %> <br> Customer 
             </li>  
             <li>  
             <%= image_tag("mail.png", :mouseover => "mail_large.png") %> <br> Projects

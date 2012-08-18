@@ -1,0 +1,57 @@
+<h1>my customers</h1>
+ 
+<table>
+  <tr>
+	<th>Market</th>
+	<th>Name</th>
+	<th>customer Ref# </th>
+	<th>Address</th>
+	<th>Postal Code </th>
+	<th>City </th>
+	<th>Country </th>
+	<th>Tel </th>
+	<th>Fax </th>
+	<th>Contact #1</th>
+	<th>Contact #2</th>
+	<th>cell #1 </th>
+	<th>cell #2 </th>
+	<th>Web page </th>
+	<th>Email </th>
+	<th>MSN </th>
+	<th>Skype </th>
+	<th>Invoicing Requirement </th>
+	<th>Shipping Documents Requirements </th>
+	<th>operations</th>
+	<th>operations</th>
+	<th>operations</th>
+  </tr>
+ 
+<% @customers.each do |customer| %>
+  <tr>
+    <td><%= customer.Market %></td>
+    <td><%= customer.name %></td>
+    <td><%= customer.id %></td>
+    <td><%= customer.Address %></td>
+    <td><%= customer.Postal_Code %></td>
+    <td><%= customer.city %></td>
+    <td><%= customer.Country %></td>
+    <td><%= customer.Tel %></td>
+    <td><%= customer.Fax %></td>
+    <td><%= customer.Contactor_a %></td>
+    <td><%= customer.Contactor_b %></td>
+    <td><%= customer.cell_a %></td>
+    <td><%= customer.cell_b %></td>
+    <td><%= customer.web_page %></td>
+    <td><%= customer.Email %></td>
+    <td><%= customer.MSN %></td>
+    <td><%= customer.Skype %></td>
+    <td><%= customer.Invoicing_Requirement %></td>
+    <td><%= customer.shipping_Document_requirements %></td>
+    <td><%= link_to 'Edit', edit_post_path(customer) %></td>
+    <td><%= link_to 'Destroy', post, :confirm => 'Are you sure?',
+                                     :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<%= link_to "add customer",new_customer_path %>

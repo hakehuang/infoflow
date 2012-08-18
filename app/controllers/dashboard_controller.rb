@@ -7,4 +7,10 @@ def index
     end
 end
 
+def customer
+    @page_id = 0
+    @customers = Customer.all
+    render 'index'
+end
+
 end

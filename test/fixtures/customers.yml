@@ -1,0 +1,41 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  Market: MyString
+  name: MyString
+  Address: MyString
+  Postal_Code: 9.99
+  city: MyString
+  Country: MyString
+  Tel: 9.99
+  Fax: 9.99
+  Contactor_a: MyString
+  Contactor_b: MyString
+  cell_a: MyString
+  cell_b: MyString
+  web_page: MyString
+  Email: MyString
+  MSN: MyString
+  Skype: MyString
+  Invoicing_Requirement: MyText
+  shipping_Document_requirements: MyText
+
+two:
+  Market: MyString
+  name: MyString
+  Address: MyString
+  Postal_Code: 9.99
+  city: MyString
+  Country: MyString
+  Tel: 9.99
+  Fax: 9.99
+  Contactor_a: MyString
+  Contactor_b: MyString
+  cell_a: MyString
+  cell_b: MyString
+  web_page: MyString
+  Email: MyString
+  MSN: MyString
+  Skype: MyString
+  Invoicing_Requirement: MyText
+  shipping_Document_requirements: MyText

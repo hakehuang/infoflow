@@ -3,7 +3,12 @@ Infoflow::Application.routes.draw do
 
   root :to => "home#index"
 
+  match '/dashboard/customer' => "dashboard#customer"
+
   resources :dashboard
+
+  resources :customers
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
