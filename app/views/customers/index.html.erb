@@ -21,35 +21,31 @@
 	<th>Skype </th>
 	<th>Invoicing Requirement </th>
 	<th>Shipping Documents Requirements </th>
-	<th>operations</th>
-	<th>operations</th>
-	<th>operations</th>
   </tr>
  
 <% @customers.each do |customer| %>
   <tr>
-    <td><%= customer.Market %></td>
-    <td><%= customer.name %></td>
-    <td><%= customer.id %></td>
-    <td><%= customer.Address %></td>
-    <td><%= customer.Postal_Code %></td>
-    <td><%= customer.city %></td>
-    <td><%= customer.Country %></td>
-    <td><%= customer.Tel %></td>
-    <td><%= customer.Fax %></td>
-    <td><%= customer.Contactor_a %></td>
-    <td><%= customer.Contactor_b %></td>
-    <td><%= customer.cell_a %></td>
-    <td><%= customer.cell_b %></td>
-    <td><%= customer.web_page %></td>
-    <td><%= customer.Email %></td>
-    <td><%= customer.MSN %></td>
-    <td><%= customer.Skype %></td>
-    <td><%= customer.Invoicing_Requirement %></td>
-    <td><%= customer.shipping_Document_requirements %></td>
-    <td><%= link_to 'Edit', edit_post_path(customer) %></td>
-    <td><%= link_to 'Destroy', post, :confirm => 'Are you sure?',
-                                     :method => :delete %></td>
+<%= form_for(customer) do |f| %>
+    <td><%=  best_in_place customer, :Market %></td>
+    <td><%= best_in_place customer, :name %></td>
+    <td><%= best_in_place customer,:id %></td>
+    <td><%= best_in_place customer,:Address %></td>
+    <td><%= best_in_place customer,:Postal_Code %></td>
+    <td><%= best_in_place customer,:city %></td>
+    <td><%= best_in_place customer,:Country %></td>
+    <td><%= best_in_place customer,:Tel %></td>
+    <td><%= best_in_place customer,:Fax %></td>
+    <td><%= best_in_place customer,:Contactor_a %></td>
+    <td><%= best_in_place customer,:Contactor_b %></td>
+    <td><%= best_in_place customer,:cell_a %></td>
+    <td><%= best_in_place customer,:cell_b %></td>
+    <td><%= best_in_place customer,:web_page %></td>
+    <td><%= best_in_place customer,:Email %></td>
+    <td><%= best_in_place customer,:MSN %></td>
+    <td><%= best_in_place customer,:Skype %></td>
+    <td><%= best_in_place customer,:Invoicing_Requirement %></td>
+    <td><%= best_in_place customer,:shipping_Document_requirements %></td>
+ <% end %>
   </tr>
 <% end %>
 </table>

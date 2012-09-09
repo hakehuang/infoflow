@@ -21,6 +21,21 @@ def edit
     @customer = Customer.find(params[:id])
  end
 
+ def update
+    @customer = Customer.find(params[:id])
+    #@custmer.update_attributes(params[:customer])
+    respond_to do |format|
+    if @customer.update_attributes(params[:customer])
+      format.html { redirect_to(@customer, :notice => 'successfully updated.') }
+      format.json { respond_with_bip(@customer) }
+    else
+      format.html { render :action => "edit" }
+      format.json { respond_with_bip(@customer) }
+    end
+    
+  end
+  end
+
   # POST /products
   # POST /products.xml
   def create
@@ -28,7 +43,7 @@ def edit
     
     respond_to do |format|
       if @customer.save
-        format.html { redirect_to edit_product_path(@customer) , :notice => "create customer" }
+        format.html { redirect_to dashboard_customer_path(@customer) , :notice => "create customer" }
         format.xml  { render :xml => @customer, :status => :created, :location => @customer }
       else
         @isnew = 1

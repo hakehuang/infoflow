@@ -13,4 +13,10 @@ def customer
     render 'index'
 end
 
+ #def update
+ #   @customer = Customer.find(params[:id])
+ #   @customer.update_attributes(params[:customer])
+ #   respond_with @customer
+ # end
+
 end
