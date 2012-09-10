@@ -4,6 +4,7 @@ gem 'rails', '3.2.3'
 
 gem 'paper_trail', '~> 2'
 
+gem 'enum_column3'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
