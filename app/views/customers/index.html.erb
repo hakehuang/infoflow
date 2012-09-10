@@ -21,6 +21,7 @@
 	<th>Skype </th>
 	<th>Invoicing Requirement </th>
 	<th>Shipping Documents Requirements </th>
+	<th>revision</th>
   </tr>
  
 <% @customers.each do |customer| %>
@@ -45,6 +46,13 @@
     <td><%= best_in_place customer,:Skype %></td>
     <td><%= best_in_place customer,:Invoicing_Requirement %></td>
     <td><%= best_in_place customer,:shipping_Document_requirements %></td>
+    <td><%= customer.versions.length %>
+        <% if user_signed_in?   %>
+        <% if (current_user.username == "admin")  %>
+          <%= customer.versions %>
+        <% end  %>
+        <% end %>
+    </td>
  <% end %>
   </tr>
 <% end %>
