@@ -5,6 +5,11 @@ gem 'rails', '3.2.3'
 gem 'paper_trail', '~> 2'
 
 gem 'enum_column3'
+
+gem 'will_paginate', '~> 3.0'
+
+gem 'mysql2'
+
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 

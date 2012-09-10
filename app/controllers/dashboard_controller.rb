@@ -9,7 +9,7 @@ end
 
 def customer
     @page_id = 0
-    @customers = Customer.all
+    @customers = Customer.paginate(:page => params[:page], :per_page => 30)
     render 'index'
 end
 

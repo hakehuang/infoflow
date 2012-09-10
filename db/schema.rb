@@ -17,11 +17,11 @@ ActiveRecord::Schema.define(:version => 20120909120227) do
     t.string   "Market"
     t.string   "name"
     t.string   "Address"
-    t.decimal  "Postal_Code"
+    t.decimal  "Postal_Code",                    :precision => 10, :scale => 0
     t.string   "city"
     t.string   "Country"
-    t.decimal  "Tel"
-    t.decimal  "Fax"
+    t.decimal  "Tel",                            :precision => 10, :scale => 0
+    t.decimal  "Fax",                            :precision => 10, :scale => 0
     t.string   "Contactor_a"
     t.string   "Contactor_b"
     t.string   "cell_a"
@@ -32,8 +32,8 @@ ActiveRecord::Schema.define(:version => 20120909120227) do
     t.string   "Skype"
     t.text     "Invoicing_Requirement"
     t.text     "shipping_Document_requirements"
-    t.datetime "created_at",                     :null => false
-    t.datetime "updated_at",                     :null => false
+    t.datetime "created_at",                                                    :null => false
+    t.datetime "updated_at",                                                    :null => false
   end
 
   create_table "users", :force => true do |t|

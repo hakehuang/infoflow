@@ -1,7 +1,7 @@
 class CustomersController < ApplicationController
 
 def index
-    	@customers = Customer.all
+    	@customers = Customer.paginate(:page => params[:page], :per_page => 30)
 	respond_to do |format|
 		format.html # index.html.erb
 		format.xml  
