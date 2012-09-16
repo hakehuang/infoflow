@@ -1,6 +1,7 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
-
+  $coptions = ["customer", "project"]
+  $cdefaults = "customer"
   def after_sign_in_path_for(resource)
 	dashboard_index_path
   end

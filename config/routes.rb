@@ -5,6 +5,8 @@ Infoflow::Application.routes.draw do
 
   match '/dashboard/customer' => "dashboard#customer"
 
+  match '/search' => "search_engine#do_search"
+
   resources :dashboard
 
   resources :customers
