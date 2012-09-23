@@ -7,6 +7,10 @@ def index
     end
 end
 
+def sort
+
+end
+
 def customer
     @searchable = 1
     @options = Customer.attribute_names

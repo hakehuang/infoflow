@@ -4,6 +4,7 @@
     <title>info control</title>
   </head>
   <body>
+  <div id="bodycenter">
   <% if ! user_signed_in? %>
   <%= render :template => 'devise/sessions/new' %>
   <% else  %>
@@ -11,5 +12,6 @@
     <%= link_to t(:edit_my_profile_info), edit_user_registration_path %>
   <% end %>
    
+  </div>
   </body>
 </html>

@@ -108,7 +108,7 @@ window.onload=staticbar
 </head>
 <body>
 <% if user_signed_in? %>
-        <% if defined? @searchable  %>
+        <% if  defined? @searchable  %>
 	<%= form_tag '/search', :method => 'get' do %>
            <%= select_tag 'cata',options_for_select($coptions,$cdefault) %>
            <%= select_tag 'range',options_for_select(@options,@default) %>
