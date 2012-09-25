@@ -1,4 +1,5 @@
 class DashboardController < ApplicationController
+$current_page = $enum_page[0]
 
 def index
     respond_to do |format|
@@ -8,7 +9,7 @@ def index
 end
 
 def sort
-
+   common_sort($current_page, params[:type])
 end
 
 def customer
@@ -16,6 +17,7 @@ def customer
     @options = Customer.attribute_names
     @default = @options[0]
     @page_id = 0
+    $current_page = $enum_page[0]
     @customers = Customer.paginate(:page => params[:page], :per_page => 30)
    render 'index'
 end

@@ -1,5 +1,9 @@
 class SearchEngineController < ApplicationController
 
+def sort
+
+end
+
 def do_search
     @searchable = 1 
     @search_condition = params[:title][:name]

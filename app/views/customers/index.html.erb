@@ -1,8 +1,9 @@
 <h1>my customers</h1>
  
-<table>
-  <tr>
-	<th><%= button_to "Market", :action => "sort",:remote => true %></th>
+<table id="customer">
+ <thead> 
+ <tr>
+	<th><%= button_to "Market", {:action => "sort", :type => "Market" },:remote => true %></th>
 	<th>Name</th>
 	<th>customer Ref# </th>
 	<th>Address</th>
@@ -23,7 +24,8 @@
 	<th>Shipping Documents Requirements </th>
 	<th>revision</th>
   </tr>
- 
+  </thead>
+ <tbody>
 <% @customers.each do |customer| %>
   <tr>
 <%= form_for(customer) do |f| %>
@@ -56,6 +58,7 @@
  <% end %>
   </tr>
 <% end %>
+ </tbody>
 </table>
 <%= will_paginate @customers %>
 <%= link_to "add customer",new_customer_path %>

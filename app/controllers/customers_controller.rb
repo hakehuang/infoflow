@@ -3,8 +3,8 @@ class CustomersController < ApplicationController
 def index
 	@searchable = 1
     	@options = Customer.attribute_names
-    	@default = @options[0]
-    	@customers = Customer.paginate(:page => params[:page], :per_page => 30)
+    	@default = @options[1]
+    	@customers = Customer.paginate(:order => "Market ASC",:page => params[:page], :per_page => 30)
 	respond_to do |format|
 		format.html # index.html.erb
 		format.xml  
@@ -56,6 +56,8 @@ def edit
     end
   end
 
+ def sort
 
+ end
 
 end
