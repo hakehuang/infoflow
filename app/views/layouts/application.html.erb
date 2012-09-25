@@ -115,7 +115,101 @@ window.onload=staticbar
            <%= text_field 'title','name' , :size => 15 %>
            <%= submit_tag t(:search) %>
          <% end  %>
-        <% end %> 
+        <% end %>
+
+<div id="dashboard">
+<%= image_tag("toggle.png", :id=>"toggle") %>
+<!--list of widgets-->
+<script type="text/javascript">
+			$(document).ready(function() {
+				
+				//Create base variable, check document width and count how much dot per line.
+				var a, b, element = '';
+				documentWidth		= $(window).width();
+				dotLength			= parseInt(documentWidth/10);
+				
+				//Loop dot per line
+				for(a=0; a<= 11; a++) {
+					
+					//Check is even or odd to add some pixel to the margin left
+					className= ((a%2) == 0) ? '0' : '0.4em';
+					element 	= element + '<div style="margin-left:'+className+'; margin-bottom: -.5em">\n';
+						
+						//Loop to create the dot
+						for(b=0; b<=dotLength; b++) {
+							element = element + '\t<span class="dot">&nbsp;</span>';
+						}
+					
+					element = element + '</div>';
+				}
+				
+				//Insert dots on #dot-container
+				$('#dot-container').html(element);
+				
+				//Add event toggle on #toggle
+				$('#toggle').toggle(
+					
+					function() {
+					
+						//Rotate toggle
+						$(this).stop().animate({rotate : '-=45deg'});
+						$('#dashboard').stop().animate({bottom : '0px'});
+						$('#dashboard-menu').stop().animate({left : '3em'});
+					},
+					
+					function() {
+						
+						//Revert rotate toggle
+						$(this).stop().animate({rotate : '0deg'});
+						$('#dashboard').stop().animate({bottom : '-150px'}, 700);
+						$('#dashboard-menu').stop().animate({left : '-65em'});
+					}
+				);
+				
+			});
+			
+</script>
+
+
+
+<div id="dashboard-menu">  
+        <ul>  
+            <li>  
+            <%= link_to image_tag("gauge.png", :mouseover => "gauge_large.png"), dashboard_customer_path %> <br> Customer 
+            </li>  
+            <li>  
+            <%= image_tag("mail.png", :mouseover => "mail_large.png") %> <br> Projects
+            </li>  
+            <li>  
+            <%= image_tag("calendar.png", :mouseover => "calendar_large.png") %> <br> Productions  
+            </li>  
+            <li>  
+            <%= image_tag("map.png", :mouseover => "map_large.png") %> <br> Shipment status
+            </li>  
+            <li>  
+            <%= image_tag("note.png", :mouseover => "note_large.png") %> <br> Cost summary
+            </li>  
+            <li>  
+            <%= image_tag("wireless.png", :mouseover => "wireless_large.png") %> <br> AirPort  
+            </li>  
+            <li>  
+            <%= image_tag("calculator.png", :mouseover => "calculator_large.png") %> <br> Calculator  
+            </li>  
+        </ul>  
+</div>
+<div id="dot-container">
+<div id="dot-container">
+<div style="margin-left:0em; margin-bottom: -.5em">
+<span class="dot"> </span><span class="dot"> </span><span class="dot"> </span><span class="dot"> </span><span class="dot"> </span><span class="dot"> </span>
+</div>
+<div style="margin-left:0.4em; margin-bottom: -.5em">
+<span class="dot"> </span><span class="dot"> </span><span class="dot"> </span><span class="dot"> </span>
+</div>
+</div>
+
+</div>
+</div> 
+ 
 <% end %>
 <%= yield %>
 <% if notice or alert  %>

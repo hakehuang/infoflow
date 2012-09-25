@@ -8,6 +8,8 @@
   <% if ! user_signed_in? %>
   <%= render :template => 'devise/sessions/new' %>
   <% else  %>
+   
+  <%= render :template => 'dashboard/index' %>
     <%= link_to t(:logout), destroy_user_session_path , :method => :delete  %> <br />
     <%= link_to t(:edit_my_profile_info), edit_user_registration_path %>
   <% end %>
