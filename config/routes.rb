@@ -4,7 +4,6 @@ Infoflow::Application.routes.draw do
   root :to => "home#index"
 
   match '/dashboard/customer' => "dashboard#customer"
-  match '/dashboard/sort' => "dashboard#sort"
 
   match '/search' => "search_engine#do_search"
 
