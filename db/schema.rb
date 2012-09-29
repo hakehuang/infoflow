@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120909120227) do
+ActiveRecord::Schema.define(:version => 20120929154334) do
 
   create_table "customers", :force => true do |t|
     t.string   "Market"
@@ -35,6 +35,25 @@ ActiveRecord::Schema.define(:version => 20120909120227) do
     t.datetime "created_at",                                                    :null => false
     t.datetime "updated_at",                                                    :null => false
   end
+
+  create_table "projects", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "customer_id"
+    t.string   "Inquery_from"
+    t.integer  "product_id"
+    t.date     "SD"
+    t.date     "Rcv_customer_sample"
+    t.integer  "manufacturer_id"
+    t.integer  "contract_id"
+    t.datetime "created_at",          :null => false
+    t.datetime "updated_at",          :null => false
+  end
+
+  add_index "projects", ["contract_id"], :name => "index_projects_on_contract_id"
+  add_index "projects", ["customer_id"], :name => "index_projects_on_customer_id"
+  add_index "projects", ["manufacturer_id"], :name => "index_projects_on_manufacturer_id"
+  add_index "projects", ["product_id"], :name => "index_projects_on_product_id"
+  add_index "projects", ["user_id"], :name => "index_projects_on_user_id"
 
   create_table "users", :force => true do |t|
     t.string   "email",                  :default => "", :null => false

@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  user: 
+  customer: 
+  Inquery_from: MyString
+  product: 
+  SD: 2012-09-29
+  Rcv_customer_sample: 2012-09-29
+  manufacturer: 
+  contract: 
+
+two:
+  user: 
+  customer: 
+  Inquery_from: MyString
+  product: 
+  SD: 2012-09-29
+  Rcv_customer_sample: 2012-09-29
+  manufacturer: 
+  contract: 

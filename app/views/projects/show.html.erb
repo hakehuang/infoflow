@@ -1,0 +1,45 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>User:</b>
+  <%= @project.user %>
+</p>
+
+<p>
+  <b>Customer:</b>
+  <%= @project.customer %>
+</p>
+
+<p>
+  <b>Inquery from:</b>
+  <%= @project.Inquery_from %>
+</p>
+
+<p>
+  <b>Product:</b>
+  <%= @project.product %>
+</p>
+
+<p>
+  <b>Sd:</b>
+  <%= @project.SD %>
+</p>
+
+<p>
+  <b>Rcv customer sample:</b>
+  <%= @project.Rcv_customer_sample %>
+</p>
+
+<p>
+  <b>Manufacturer:</b>
+  <%= @project.manufacturer %>
+</p>
+
+<p>
+  <b>Contract:</b>
+  <%= @project.contract %>
+</p>
+
+
+<%= link_to 'Edit', edit_project_path(@project) %> |
+<%= link_to 'Back', projects_path %>
