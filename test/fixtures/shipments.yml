@@ -1,0 +1,25 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  user: 
+  customer: 
+  product: 
+  lead: 2012-09-30
+  production: 
+  expected_ship: 2012-09-30
+  actual_ship: 2012-09-30
+  return_tax: 2012-09-30
+  write-off: MyString
+  contract: 
+
+two:
+  user: 
+  customer: 
+  product: 
+  lead: 2012-09-30
+  production: 
+  expected_ship: 2012-09-30
+  actual_ship: 2012-09-30
+  return_tax: 2012-09-30
+  write-off: MyString
+  contract: 

@@ -1,0 +1,61 @@
+<%= form_for(@production) do |f| %>
+  <% if @production.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@production.errors.count, "error") %> prohibited this production from being saved:</h2>
+
+      <ul>
+      <% @production.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :user %><br />
+    <%= f.text_field :user %>
+  </div>
+  <div class="field">
+    <%= f.label :customer %><br />
+    <%= f.text_field :customer %>
+  </div>
+  <div class="field">
+    <%= f.label :product %><br />
+    <%= f.text_field :product %>
+  </div>
+  <div class="field">
+    <%= f.label :factory_counter_sample %><br />
+    <%= f.date_select :factory_counter_sample %>
+  </div>
+  <div class="field">
+    <%= f.label :customer_approval_counter_sample %><br />
+    <%= f.date_select :customer_approval_counter_sample %>
+  </div>
+  <div class="field">
+    <%= f.label :contract %><br />
+    <%= f.text_field :contract %>
+  </div>
+  <div class="field">
+    <%= f.label :production_start %><br />
+    <%= f.date_select :production_start %>
+  </div>
+  <div class="field">
+    <%= f.label :pre_production_sample %><br />
+    <%= f.date_select :pre_production_sample %>
+  </div>
+  <div class="field">
+    <%= f.label :QC_in_production %><br />
+    <%= f.date_select :QC_in_production %>
+  </div>
+  <div class="field">
+    <%= f.label :QC_final %><br />
+    <%= f.date_select :QC_final %>
+  </div>
+  <div class="field">
+    <%= f.label :shipment %><br />
+    <%= f.text_field :shipment %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

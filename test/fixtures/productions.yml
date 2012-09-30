@@ -1,0 +1,27 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  user: 
+  customer: 
+  product: 
+  factory_counter_sample: 2012-09-30
+  customer_approval_counter_sample: 2012-09-30
+  contract: 
+  production_start: 2012-09-30
+  pre_production_sample: 2012-09-30
+  QC_in_production: 2012-09-30
+  QC_final: 2012-09-30
+  shipment: 
+
+two:
+  user: 
+  customer: 
+  product: 
+  factory_counter_sample: 2012-09-30
+  customer_approval_counter_sample: 2012-09-30
+  contract: 
+  production_start: 2012-09-30
+  pre_production_sample: 2012-09-30
+  QC_in_production: 2012-09-30
+  QC_final: 2012-09-30
+  shipment: 

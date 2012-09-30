@@ -1,0 +1,43 @@
+<h1>Listing productions</h1>
+
+<table>
+  <tr>
+    <th>User</th>
+    <th>Customer</th>
+    <th>Product</th>
+    <th>Factory counter sample</th>
+    <th>Customer approval counter sample</th>
+    <th>Contract</th>
+    <th>Production start</th>
+    <th>Pre production sample</th>
+    <th>Qc in production</th>
+    <th>Qc final</th>
+    <th>Shipment</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @productions.each do |production| %>
+  <tr>
+    <td><%= production.user %></td>
+    <td><%= production.customer %></td>
+    <td><%= production.product %></td>
+    <td><%= production.factory_counter_sample %></td>
+    <td><%= production.customer_approval_counter_sample %></td>
+    <td><%= production.contract %></td>
+    <td><%= production.production_start %></td>
+    <td><%= production.pre_production_sample %></td>
+    <td><%= production.QC_in_production %></td>
+    <td><%= production.QC_final %></td>
+    <td><%= production.shipment %></td>
+    <td><%= link_to 'Show', production %></td>
+    <td><%= link_to 'Edit', edit_production_path(production) %></td>
+    <td><%= link_to 'Destroy', production, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Production', new_production_path %>

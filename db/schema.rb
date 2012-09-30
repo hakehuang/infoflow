@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120929154334) do
+ActiveRecord::Schema.define(:version => 20120930132837) do
 
   create_table "customers", :force => true do |t|
     t.string   "Market"
@@ -35,6 +35,28 @@ ActiveRecord::Schema.define(:version => 20120929154334) do
     t.datetime "created_at",                                                    :null => false
     t.datetime "updated_at",                                                    :null => false
   end
+
+  create_table "productions", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "customer_id"
+    t.integer  "product_id"
+    t.date     "factory_counter_sample"
+    t.date     "customer_approval_counter_sample"
+    t.integer  "contract_id"
+    t.date     "production_start"
+    t.date     "pre_production_sample"
+    t.date     "QC_in_production"
+    t.date     "QC_final"
+    t.integer  "shipment_id"
+    t.datetime "created_at",                       :null => false
+    t.datetime "updated_at",                       :null => false
+  end
+
+  add_index "productions", ["contract_id"], :name => "index_productions_on_contract_id"
+  add_index "productions", ["customer_id"], :name => "index_productions_on_customer_id"
+  add_index "productions", ["product_id"], :name => "index_productions_on_product_id"
+  add_index "productions", ["shipment_id"], :name => "index_productions_on_shipment_id"
+  add_index "productions", ["user_id"], :name => "index_productions_on_user_id"
 
   create_table "projects", :force => true do |t|
     t.integer  "user_id"

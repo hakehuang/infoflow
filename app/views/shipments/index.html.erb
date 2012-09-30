@@ -1,0 +1,41 @@
+<h1>Listing shipments</h1>
+
+<table>
+  <tr>
+    <th>User</th>
+    <th>Customer</th>
+    <th>Product</th>
+    <th>Lead</th>
+    <th>Production</th>
+    <th>Expected ship</th>
+    <th>Actual ship</th>
+    <th>Return tax</th>
+    <th>Write-off</th>
+    <th>Contract</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @shipments.each do |shipment| %>
+  <tr>
+    <td><%= shipment.user %></td>
+    <td><%= shipment.customer %></td>
+    <td><%= shipment.product %></td>
+    <td><%= shipment.lead %></td>
+    <td><%= shipment.production %></td>
+    <td><%= shipment.expected_ship %></td>
+    <td><%= shipment.actual_ship %></td>
+    <td><%= shipment.return_tax %></td>
+    <td><%= shipment.write-off %></td>
+    <td><%= shipment.contract %></td>
+    <td><%= link_to 'Show', shipment %></td>
+    <td><%= link_to 'Edit', edit_shipment_path(shipment) %></td>
+    <td><%= link_to 'Destroy', shipment, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Shipment', new_shipment_path %>

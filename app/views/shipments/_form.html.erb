@@ -1,0 +1,57 @@
+<%= form_for(@shipment) do |f| %>
+  <% if @shipment.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@shipment.errors.count, "error") %> prohibited this shipment from being saved:</h2>
+
+      <ul>
+      <% @shipment.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :user %><br />
+    <%= f.text_field :user %>
+  </div>
+  <div class="field">
+    <%= f.label :customer %><br />
+    <%= f.text_field :customer %>
+  </div>
+  <div class="field">
+    <%= f.label :product %><br />
+    <%= f.text_field :product %>
+  </div>
+  <div class="field">
+    <%= f.label :lead %><br />
+    <%= f.date_select :lead %>
+  </div>
+  <div class="field">
+    <%= f.label :production %><br />
+    <%= f.text_field :production %>
+  </div>
+  <div class="field">
+    <%= f.label :expected_ship %><br />
+    <%= f.date_select :expected_ship %>
+  </div>
+  <div class="field">
+    <%= f.label :actual_ship %><br />
+    <%= f.date_select :actual_ship %>
+  </div>
+  <div class="field">
+    <%= f.label :return_tax %><br />
+    <%= f.date_select :return_tax %>
+  </div>
+  <div class="field">
+    <%= f.label :write-off %><br />
+    <%= f.text_field :write-off %>
+  </div>
+  <div class="field">
+    <%= f.label :contract %><br />
+    <%= f.text_field :contract %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

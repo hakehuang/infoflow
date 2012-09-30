@@ -1,0 +1,55 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>User:</b>
+  <%= @shipment.user %>
+</p>
+
+<p>
+  <b>Customer:</b>
+  <%= @shipment.customer %>
+</p>
+
+<p>
+  <b>Product:</b>
+  <%= @shipment.product %>
+</p>
+
+<p>
+  <b>Lead:</b>
+  <%= @shipment.lead %>
+</p>
+
+<p>
+  <b>Production:</b>
+  <%= @shipment.production %>
+</p>
+
+<p>
+  <b>Expected ship:</b>
+  <%= @shipment.expected_ship %>
+</p>
+
+<p>
+  <b>Actual ship:</b>
+  <%= @shipment.actual_ship %>
+</p>
+
+<p>
+  <b>Return tax:</b>
+  <%= @shipment.return_tax %>
+</p>
+
+<p>
+  <b>Write-off:</b>
+  <%= @shipment.write-off %>
+</p>
+
+<p>
+  <b>Contract:</b>
+  <%= @shipment.contract %>
+</p>
+
+
+<%= link_to 'Edit', edit_shipment_path(@shipment) %> |
+<%= link_to 'Back', shipments_path %>

@@ -1,0 +1,60 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>User:</b>
+  <%= @production.user %>
+</p>
+
+<p>
+  <b>Customer:</b>
+  <%= @production.customer %>
+</p>
+
+<p>
+  <b>Product:</b>
+  <%= @production.product %>
+</p>
+
+<p>
+  <b>Factory counter sample:</b>
+  <%= @production.factory_counter_sample %>
+</p>
+
+<p>
+  <b>Customer approval counter sample:</b>
+  <%= @production.customer_approval_counter_sample %>
+</p>
+
+<p>
+  <b>Contract:</b>
+  <%= @production.contract %>
+</p>
+
+<p>
+  <b>Production start:</b>
+  <%= @production.production_start %>
+</p>
+
+<p>
+  <b>Pre production sample:</b>
+  <%= @production.pre_production_sample %>
+</p>
+
+<p>
+  <b>Qc in production:</b>
+  <%= @production.QC_in_production %>
+</p>
+
+<p>
+  <b>Qc final:</b>
+  <%= @production.QC_final %>
+</p>
+
+<p>
+  <b>Shipment:</b>
+  <%= @production.shipment %>
+</p>
+
+
+<%= link_to 'Edit', edit_production_path(@production) %> |
+<%= link_to 'Back', productions_path %>
