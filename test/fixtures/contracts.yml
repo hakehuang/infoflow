@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  user: 
+  number: MyString
+  details: MyString
+  prefoma_sale_date: 2012-09-30
+  deposit_rcvd_date: 2012-09-30
+  payment_tt_data: 2012-09-30
+
+two:
+  user: 
+  number: MyString
+  details: MyString
+  prefoma_sale_date: 2012-09-30
+  deposit_rcvd_date: 2012-09-30
+  payment_tt_data: 2012-09-30

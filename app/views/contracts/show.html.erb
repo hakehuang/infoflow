@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>User:</b>
+  <%= @contract.user %>
+</p>
+
+<p>
+  <b>Number:</b>
+  <%= @contract.number %>
+</p>
+
+<p>
+  <b>Details:</b>
+  <%= @contract.details %>
+</p>
+
+<p>
+  <b>Prefoma sale date:</b>
+  <%= @contract.prefoma_sale_date %>
+</p>
+
+<p>
+  <b>Deposit rcvd date:</b>
+  <%= @contract.deposit_rcvd_date %>
+</p>
+
+<p>
+  <b>Payment tt data:</b>
+  <%= @contract.payment_tt_data %>
+</p>
+
+
+<%= link_to 'Edit', edit_contract_path(@contract) %> |
+<%= link_to 'Back', contracts_path %>

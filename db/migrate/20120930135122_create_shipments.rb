@@ -9,7 +9,7 @@ class CreateShipments < ActiveRecord::Migration
       t.date :expected_ship
       t.date :actual_ship
       t.date :return_tax
-      t.string :write-off
+      t.string :write_off
       t.references :contract
 
       t.timestamps

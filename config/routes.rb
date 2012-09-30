@@ -1,4 +1,6 @@
 Infoflow::Application.routes.draw do
+  resources :contracts
+
   resources :manufactures
 
   resources :products
