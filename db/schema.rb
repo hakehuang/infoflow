@@ -11,7 +11,21 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120930132837) do
+ActiveRecord::Schema.define(:version => 20120930152217) do
+
+  create_table "contracts", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "customer_id"
+    t.string   "number"
+    t.string   "details"
+    t.date     "prefoma_sale_date"
+    t.date     "deposit_rcvd_date"
+    t.date     "payment_tt_data"
+    t.datetime "created_at",        :null => false
+    t.datetime "updated_at",        :null => false
+  end
+
+  add_index "contracts", ["user_id"], :name => "index_contracts_on_user_id"
 
   create_table "customers", :force => true do |t|
     t.string   "Market"
@@ -36,6 +50,17 @@ ActiveRecord::Schema.define(:version => 20120930132837) do
     t.datetime "updated_at",                                                    :null => false
   end
 
+  create_table "manufactures", :force => true do |t|
+    t.integer  "user_id"
+    t.string   "location"
+    t.string   "certification"
+    t.string   "contactor"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
+  end
+
+  add_index "manufactures", ["user_id"], :name => "index_manufactures_on_user_id"
+
   create_table "productions", :force => true do |t|
     t.integer  "user_id"
     t.integer  "customer_id"
@@ -58,6 +83,16 @@ ActiveRecord::Schema.define(:version => 20120930132837) do
   add_index "productions", ["shipment_id"], :name => "index_productions_on_shipment_id"
   add_index "productions", ["user_id"], :name => "index_productions_on_user_id"
 
+  create_table "products", :force => true do |t|
+    t.string   "name"
+    t.string   "certification_1"
+    t.integer  "manufacturer_id"
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
+  end
+
+  add_index "products", ["manufacturer_id"], :name => "index_products_on_manufacturer_id"
+
   create_table "projects", :force => true do |t|
     t.integer  "user_id"
     t.integer  "customer_id"
@@ -76,6 +111,27 @@ ActiveRecord::Schema.define(:version => 20120930132837) do
   add_index "projects", ["manufacturer_id"], :name => "index_projects_on_manufacturer_id"
   add_index "projects", ["product_id"], :name => "index_projects_on_product_id"
   add_index "projects", ["user_id"], :name => "index_projects_on_user_id"
+
+  create_table "shipments", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "customer_id"
+    t.integer  "product_id"
+    t.date     "lead"
+    t.integer  "production_id"
+    t.date     "expected_ship"
+    t.date     "actual_ship"
+    t.date     "return_tax"
+    t.string   "write_off"
+    t.integer  "contract_id"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
+  end
+
+  add_index "shipments", ["contract_id"], :name => "index_shipments_on_contract_id"
+  add_index "shipments", ["customer_id"], :name => "index_shipments_on_customer_id"
+  add_index "shipments", ["product_id"], :name => "index_shipments_on_product_id"
+  add_index "shipments", ["production_id"], :name => "index_shipments_on_production_id"
+  add_index "shipments", ["user_id"], :name => "index_shipments_on_user_id"
 
   create_table "users", :force => true do |t|
     t.string   "email",                  :default => "", :null => false

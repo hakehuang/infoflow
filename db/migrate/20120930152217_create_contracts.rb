@@ -2,6 +2,7 @@ class CreateContracts < ActiveRecord::Migration
   def change
     create_table :contracts do |t|
       t.references :user
+      t.references :customer
       t.string :number
       t.string :details
       t.date :prefoma_sale_date
