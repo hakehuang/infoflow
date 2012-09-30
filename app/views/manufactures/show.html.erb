@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>User:</b>
+  <%= @manufacture.user %>
+</p>
+
+<p>
+  <b>Location:</b>
+  <%= @manufacture.location %>
+</p>
+
+<p>
+  <b>Certification:</b>
+  <%= @manufacture.certification %>
+</p>
+
+<p>
+  <b>Contactor:</b>
+  <%= @manufacture.contactor %>
+</p>
+
+
+<%= link_to 'Edit', edit_manufacture_path(@manufacture) %> |
+<%= link_to 'Back', manufactures_path %>

@@ -1,0 +1,33 @@
+<%= form_for(@manufacture) do |f| %>
+  <% if @manufacture.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@manufacture.errors.count, "error") %> prohibited this manufacture from being saved:</h2>
+
+      <ul>
+      <% @manufacture.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :user %><br />
+    <%= f.text_field :user %>
+  </div>
+  <div class="field">
+    <%= f.label :location %><br />
+    <%= f.text_field :location %>
+  </div>
+  <div class="field">
+    <%= f.label :certification %><br />
+    <%= f.text_field :certification %>
+  </div>
+  <div class="field">
+    <%= f.label :contactor %><br />
+    <%= f.text_field :contactor %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

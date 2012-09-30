@@ -1,0 +1,29 @@
+<h1>Listing manufactures</h1>
+
+<table>
+  <tr>
+    <th>User</th>
+    <th>Location</th>
+    <th>Certification</th>
+    <th>Contactor</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @manufactures.each do |manufacture| %>
+  <tr>
+    <td><%= manufacture.user %></td>
+    <td><%= manufacture.location %></td>
+    <td><%= manufacture.certification %></td>
+    <td><%= manufacture.contactor %></td>
+    <td><%= link_to 'Show', manufacture %></td>
+    <td><%= link_to 'Edit', edit_manufacture_path(manufacture) %></td>
+    <td><%= link_to 'Destroy', manufacture, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Manufacture', new_manufacture_path %>
