@@ -51,10 +51,11 @@
     <td><%= best_in_place customer,:Invoicing_Requirement %></td>
     <td><%= best_in_place customer,:shipping_Document_requirements %></td>
     <td><%= link_to User.find(customer.user.id).username, edit_user_registration_path(customer.user.id) %></td>
-    <td><% if customer.contracts.count > 0 %>
-        <% link_to "former contract", contract_path   %>
+    <td><% if customer.contracts.count  > 0 %>
+        <%= link_to "ready contracts", contracts_path(:customer => customer.id)%>
+        <br />
         <% end%>
-        <%= link_to "new a contract",new_contract_path(:customer => customer) %>
+        <%= link_to "new contract",new_contract_path(:customer => customer) %>
     </td>
     <td><%= customer.versions.length %>
         <% if user_signed_in?   %>

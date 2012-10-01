@@ -31,7 +31,7 @@ def contract
     $cdefault = "contract"
     $current_page = $enum_page[3]
     @contracts = Contract.paginate(:page => params[:page], :per_page => 30)
-     render 'index'
+    render 'index'
 end
 
  #def update

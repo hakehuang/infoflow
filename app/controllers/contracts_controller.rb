@@ -4,7 +4,12 @@ class ContractsController < ApplicationController
     @searchable = 1
     @options = Contract.attribute_names
     @default = @options[1]
+    $cdefault = $coptions[3]
+    if ! params[:customer].nil?
+    @contracts = Contract.where("customer_id" +  " LIKE :range", :range => "%" +  params[:customer] + "%").paginate(:page => params[:page], :per_page => 30)
+    else
     @contracts = Contract.paginate(:page => params[:page], :per_page => 30)
+    end
     respond_to do |format|
 	format.html # index.html.erb
 	format.xml  

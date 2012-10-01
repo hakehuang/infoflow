@@ -21,9 +21,9 @@
   <tr>
   <%= form_for(contract) do |f| %>
     <td><%=  best_in_place contract, :No %></td>
-    <td><%= best_in_place contract, :deposit_rcvd %></td>
-    <td><%= best_in_place contract,:expected_ship_date %></td>
-    <td><%= best_in_place contract,:prefoma_sales_contract %></td>
+    <td><%= best_in_place contract, :deposit_rcvd, :type => :date %></td>
+    <td><%= best_in_place contract,:expected_ship_date, :type => :date %></td>
+    <td><%= best_in_place contract,:prefoma_sales_contract, :type => :date %></td>
     <td><%= best_in_place contract,:summary %></td>
     <td><% if ! contract.customer_id.nil?  %>
  <%= Customer.find(contract.customer_id).name %>

@@ -20,8 +20,13 @@ def do_search
     	@default = @options[1]
         $cdefault = $coptions[3]
     	@contracts = Contract.where(@search_range + " LIKE :range", :range => "%" +  @search_condition + "%").paginate(:page => params[:page], :per_page => 30)
-    	render '/contract/index'
+    	render '/contracts/index'
     else
+   	@options = Contract.attribute_names
+    	@default = @options[1]
+        $cdefault = $coptions[3]
+    	@contracts = Contract.where(@search_range + " LIKE :range", :range => "%" +  @search_condition + "%").paginate(:page => params[:page], :per_page => 30)
+    	render '/contracts/index'
     end
 end
 
