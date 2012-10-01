@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  No: MyString
+  summary: MyString
+  prefoma_sales_contract: 2012-10-01
+  deposit_rcvd: 2012-10-01
+  expected_ship_date: 2012-10-01
+  customer: 
+
+two:
+  No: MyString
+  summary: MyString
+  prefoma_sales_contract: 2012-10-01
+  deposit_rcvd: 2012-10-01
+  expected_ship_date: 2012-10-01
+  customer: 

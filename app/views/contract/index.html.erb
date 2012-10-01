@@ -1,0 +1,43 @@
+
+<h1>contracts</h1>
+
+<table id="contract" class="display">
+ <thead> 
+ <tr>
+	<th>No.</th>
+	<th>deposit_rcvd</th>
+	<th>expect ship date </th>
+	<th>prefoma sales contract date</th>
+	<th>summary</th>
+	<th>customer</th>
+	<th>PM</th>
+	<th>products</th>
+	<th>projects</th>
+	<th>revision</th>
+  </tr>
+  </thead>
+ <tbody>
+<% @contracts.each do |contract| %>
+  <tr>
+    <td><%=  best_in_place contract, :No %></td>
+    <td><%= best_in_place contract, :deposit_rcvd %></td>
+    <td><%= best_in_place contract,:expected_ship_date %></td>
+    <td><%= best_in_place contract,:prefoma_sales_contract %></td>
+    <td><%= best_in_place contract,:summary %></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td><%= contract.versions.length %>
+        <% if user_signed_in?   %>
+        <% if (current_user.username == "admin")  %>
+          <%= contract.versions %>
+        <% end  %>
+        <% end %>
+    </td>
+  </tr>
+<% end %>
+ </tbody>
+</table>
+<%= will_paginate @contracts %>
+<br />
+<%= link_to "add contract",new_contract_path %>

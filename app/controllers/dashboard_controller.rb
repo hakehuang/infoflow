@@ -22,6 +22,17 @@ def customer
    render 'index'
 end
 
+def contract
+    @searchable = 1
+    @options = Contract.attribute_names
+    @default = @options[3]
+    @page_id = 3
+    $current_page = $enum_page[3]
+    @contracts = Contract.paginate(:page => params[:page], :per_page => 30)
+     render 'index'
+end
+
+
  #def update
  #   @customer = Customer.find(params[:id])
  #   @customer.update_attributes(params[:customer])
