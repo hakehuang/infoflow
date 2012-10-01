@@ -17,6 +17,7 @@ def customer
     @options = Customer.attribute_names
     @default = @options[0]
     @page_id = 0
+    $cdefault = "customer"
     $current_page = $enum_page[0]
     @customers = Customer.paginate(:page => params[:page], :per_page => 30)
    render 'index'
@@ -27,6 +28,7 @@ def contract
     @options = Contract.attribute_names
     @default = @options[3]
     @page_id = 3
+    $cdefault = "contract"
     $current_page = $enum_page[3]
     @contracts = Contract.paginate(:page => params[:page], :per_page => 30)
      render 'index'

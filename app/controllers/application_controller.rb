@@ -19,8 +19,15 @@ class ApplicationController < ActionController::Base
 	@searchable = 1
     	@options = Customer.attribute_names
     	@default = @options[1]
+        $cdefault = $coptions[0]
     	@customers = Customer.find(:all, :order => type +  " ASC" ).paginate(:page => params[:page], :per_page => 30)
-    	else
+    	when $enum_apge[3]
+	@searchable = 1
+    	@options = Contract.attribute_names
+    	@default = @options[1]
+        $cdefault = $coptions[3]
+    	@customers = Contract.find(:all, :order => type +  " ASC" ).paginate(:page => params[:page], :per_page => 30)
+        else
     end
   end
 end
