@@ -13,11 +13,21 @@ end
 
 def new
     @customer = Customer.new
-   
+    @customer.user_id = current_user.id    
     respond_to do |format|
-      format.html # new.html.erb
-      format.xml  { render :xml => @pcustomer }
+      if @customer.save
+        format.html { redirect_to dashboard_customer_path(@customer) , :notice => "create customer" }
+        format.xml  { render :xml => @customer, :status => :created, :location => @customer }
+      else
+        @isnew = 1
+        format.html { render :action => "new" }
+        format.xml  { render :xml => @customer.errors, :status => :unprocessable_entity }
+      end
     end
+#    respond_to do |format|
+#      format.html # new.html.erb
+#      format.xml  { render :xml => @customer }
+#    end
 end
 
 def edit
@@ -26,6 +36,7 @@ def edit
 
  def update
     @customer = Customer.find(params[:id])
+    @customer.user.id = current_user.id
     #@custmer.update_attributes(params[:customer])
     respond_to do |format|
     if @customer.update_attributes(params[:customer])
