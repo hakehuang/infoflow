@@ -45,7 +45,7 @@ class ContractsController < ApplicationController
       format.html { redirect_to(@contract, :notice => 'successfully updated.') }
       format.json { respond_with_bip(@contract) }
     else
-      format.html { render :action => "edit" }
+      format.html { redirect_to(@contract, :alert => 'update attributes failed.')}
       format.json { respond_with_bip(@contract) }
     end
     

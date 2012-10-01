@@ -34,7 +34,6 @@ def contract
      render 'index'
 end
 
-
  #def update
  #   @customer = Customer.find(params[:id])
  #   @customer.update_attributes(params[:customer])
