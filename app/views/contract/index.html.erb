@@ -25,8 +25,18 @@
     <td><%= best_in_place contract,:expected_ship_date %></td>
     <td><%= best_in_place contract,:prefoma_sales_contract %></td>
     <td><%= best_in_place contract,:summary %></td>
-    <td></td>
-    <td></td>
+    <td><% if ! contract.customer_id.nil?  %>
+ <%= Customer.find(contract.customer_id).name %>
+      <% else %>
+    <%= best_in_place contract,:customer_id %>
+      <% end %>
+    </td>
+    <td><% if ! contract.user_id.nil?  %>
+ <%= User.find(contract.user_id).username %>
+        <% else %>
+    <%= best_in_place contract,:user_id %>
+        <% end  %>
+     </td>
     <td></td>
     <td></td>
     <td><%= contract.versions.length %>

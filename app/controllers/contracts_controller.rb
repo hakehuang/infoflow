@@ -13,7 +13,10 @@ class ContractsController < ApplicationController
 
  def new
     @contract = Contract.new
-    @contract.user.id = current_user.id
+    if ! params[:customer].nil?
+      @contract.customer_id = params[:customer]
+    end
+    @contract.user_id = current_user.id
     respond_to do |format|
       if @contract.save
         format.html { redirect_to dashboard_contract_path(@contract) , :notice => "create contract" }
