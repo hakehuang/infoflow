@@ -19,6 +19,7 @@
  <tbody>
 <% @contracts.each do |contract| %>
   <tr>
+  <%= form_for(contract) do |f| %>
     <td><%=  best_in_place contract, :No %></td>
     <td><%= best_in_place contract, :deposit_rcvd %></td>
     <td><%= best_in_place contract,:expected_ship_date %></td>
@@ -34,6 +35,7 @@
         <% end  %>
         <% end %>
     </td>
+  <% end %>
   </tr>
 <% end %>
  </tbody>
