@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121001050929) do
+ActiveRecord::Schema.define(:version => 20121001082342) do
 
   create_table "contracts", :force => true do |t|
     t.string   "No"
@@ -24,6 +24,7 @@ ActiveRecord::Schema.define(:version => 20121001050929) do
     t.datetime "updated_at",             :null => false
   end
 
+  add_index "contracts", ["No"], :name => "index_contracts_on_No", :unique => true
   add_index "contracts", ["customer_id"], :name => "index_contracts_on_customer_id"
 
   create_table "customers", :force => true do |t|
