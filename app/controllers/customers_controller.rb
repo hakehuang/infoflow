@@ -43,7 +43,7 @@ def edit
   # POST /products.xml
   def create
     @customer = Customer.new(params[:customer])
-    
+    @customer.user_id = current_user.id    
     respond_to do |format|
       if @customer.save
         format.html { redirect_to dashboard_customer_path(@customer) , :notice => "create customer" }

@@ -22,6 +22,7 @@
 	<th>Skype </th>
 	<th>Invoicing Requirement </th>
 	<th>Shipping Documents Requirements </th>
+        <th>Creator</th>
 	<th>revision</th>
   </tr>
   </thead>
@@ -48,6 +49,7 @@
     <td><%= best_in_place customer,:Skype %></td>
     <td><%= best_in_place customer,:Invoicing_Requirement %></td>
     <td><%= best_in_place customer,:shipping_Document_requirements %></td>
+    <td><%= link_to User.find(customer.user.id).username, edit_user_registration_path(customer.user.id) %></td>
     <td><%= customer.versions.length %>
         <% if user_signed_in?   %>
         <% if (current_user.username == "admin")  %>
@@ -61,4 +63,5 @@
  </tbody>
 </table>
 <%= will_paginate @customers %>
+<br />
 <%= link_to "add customer",new_customer_path %>
