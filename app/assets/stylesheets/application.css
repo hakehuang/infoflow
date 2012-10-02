@@ -14,3 +14,24 @@
  *= require dataTables/jquery.dataTables
  *= require_tree .
 */
+.floatstop{clear:both;}
+
+div#search {
+width: 50%
+} 
+
+div#cata {
+float:left
+}
+
+div#rangeDiv {
+float:left
+}
+
+div#title_name {
+float: left
+}
+
+div#search_button {
+float: left
+}

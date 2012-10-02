@@ -8,6 +8,26 @@ def index
     end
 end
 
+def update_range
+   @searchable=1
+   logger.info "DEBUGING update_range"
+   case params[:cata]
+      when $enum_page[0]
+    	@options = Customer.attribute_names
+      #when $enum_page[1]
+        
+      #when $enum_page[2]
+      when $enum_page[3]
+    	@options = Contract.attribute_names
+      #when $enum_page[4]
+      #when $enum_page[5]
+      else
+        @options = ""
+   end
+  
+   render :partial => "range", :object => @options
+end
+
 def sort
    common_sort($current_page, params[:type])
 end

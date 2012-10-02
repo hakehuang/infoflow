@@ -109,13 +109,26 @@ window.onload=staticbar
 <body>
 <% if user_signed_in? %>
         <% if  defined? @searchable  %>
+        <div id="search">
 	<%= form_tag '/search', :method => 'get' do %>
-           <%= select_tag 'cata', options_for_select($coptions, $cdefault) %>
-           <%= select_tag 'range',options_for_select(@options,@default) %>
+            <div id="cata">
+           <%= select_tag 'cata', options_for_select($coptions, $cdefault),:onchange => "update_range_div(this.value)" %>
+            </div>
+           <div id="rangeDiv">
+           <%= render :partial => 'range', :object => @options %>
+            </div>
+           <div id="title_name">
+           <!-- %= select_tag 'range',options_for_select(@options,@default) % -->
            <%= text_field 'title','name' , :size => 15 %>
+           </div>
+           <div id="search_button">
            <%= submit_tag t(:search) %>
+           </div>
          <% end  %>
-        <% end %>
+        </div>
+   <p class="floatstop"> 
+      <% end %>
+
 
 <div id="dashboard">
 <%= image_tag("toggle.png", :id=>"toggle") %>
