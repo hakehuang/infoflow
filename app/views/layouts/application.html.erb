@@ -115,7 +115,7 @@ window.onload=staticbar
            <%= select_tag 'cata', options_for_select($coptions, $cdefault),:onchange => "update_range_div(this.value)" %>
             </div>
            <div id="rangeDiv">
-           <%= render :partial => 'range', :object => @options %>
+           <%= render :partial => 'dashboard/range', :object => @options %>
             </div>
            <div id="title_name">
            <!-- %= select_tag 'range',options_for_select(@options,@default) % -->
