@@ -1,0 +1,71 @@
+<h1><%= link_to "customers",customers_path %></h1>
+ 
+<table id="customer" class="display">
+ <thead> 
+ <tr>
+	<th>Market</th>
+	<th>Name</th>
+	<th>customer Ref# </th>
+	<th>Address</th>
+	<th>Postal Code </th>
+	<th>City </th>
+	<th>Country </th>
+	<th>Tel </th>
+	<th>Fax </th>
+	<th>Contact #1</th>
+	<th>Contact #2</th>
+	<th>cell #1 </th>
+	<th>cell #2 </th>
+	<th>Web page </th>
+	<th>Email </th>
+	<th>MSN </th>
+	<th>Skype </th>
+	<th>Invoicing Requirement </th>
+	<th>Shipping Documents Requirements </th>
+        <th>Creator</th>
+        <th>Contracts</th>
+	<th>revision</th>
+  </tr>
+  </thead>
+ <tbody>
+  <tr>
+<%= form_for(@customer) do |f| %>
+    <td><%=  best_in_place @customer, :Market %></td>
+    <td><%= best_in_place @customer, :name %></td>
+    <td><%= best_in_place @customer,:id %></td>
+    <td><%= best_in_place @customer,:Address %></td>
+    <td><%= best_in_place @customer,:Postal_Code %></td>
+    <td><%= best_in_place @customer,:city %></td>
+    <td><%= best_in_place @customer,:Country %></td>
+    <td><%= best_in_place @customer,:Tel %></td>
+    <td><%= best_in_place @customer,:Fax %></td>
+    <td><%= best_in_place @customer,:Contactor_a %></td>
+    <td><%= best_in_place @customer,:Contactor_b %></td>
+    <td><%= best_in_place @customer,:cell_a %></td>
+    <td><%= best_in_place @customer,:cell_b %></td>
+    <td><%= best_in_place @customer,:web_page %></td>
+    <td><%= best_in_place @customer,:Email %></td>
+    <td><%= best_in_place @customer,:MSN %></td>
+    <td><%= best_in_place @customer,:Skype %></td>
+    <td><%= best_in_place @customer,:Invoicing_Requirement %></td>
+    <td><%= best_in_place @customer,:shipping_Document_requirements %></td>
+    <td><%= link_to User.find(@customer.user.id).username, edit_user_registration_path(@customer.user.id) %></td>
+    <td><% if @customer.contracts.count  > 0 %>
+        <%= link_to "ready contracts", contracts_path(:customer => @customer.id)%>
+        <br />
+        <% end%>
+        <%= link_to "new contract",new_contract_path(:customer => @customer) %>
+    </td>
+    <td><%= customer.versions.length %>
+        <% if user_signed_in?   %>
+        <% if (current_user.username == "admin")  %>
+          <%= customer.versions %>
+        <% end  %>
+        <% end %>
+    </td>
+ <% end %>
+  </tr>
+ </tbody>
+</table>
+<br />
+

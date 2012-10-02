@@ -1,17 +1,38 @@
 class CustomersController < ApplicationController
 
-def index
-	@searchable = 1
-    	@options = Customer.attribute_names
-    	@default = @options[1]
-    	@customers = Customer.paginate(:order => "Market ASC",:page => params[:page], :per_page => 30)
-	respond_to do |format|
-		format.html # index.html.erb
-		format.xml  
-	end
-end
+ def show
+    if params[:id].nil?
+      redirect_to customers_path
+    end 
 
-def new
+    @searchable = 1
+    @options = Customer.attribute_names
+    @default = @options[1]
+    @customer = Customer.find(params[:id])
+    
+    respond_to do |format|
+      format.html # show.html.erb
+      format.xml  { render :xml => @customer }
+    end
+ end
+
+
+ def index
+    @searchable = 1
+    @options = Customer.attribute_names
+    @default = @options[1]
+    if ! params[:id].nil?
+    @customers = Customer.where("id" +  " LIKE :range", :range => "%" +  params[:id] + "%").paginate(:page => params[:page], :per_page => 30)
+    else
+    @customers = Customer.paginate(:order => "Market ASC",:page => params[:page], :per_page => 30)
+    end
+    respond_to do |format|
+      format.html # index.html.erb
+      format.xml  
+    end
+ end
+
+ def new
     @customer = Customer.new
     @customer.user_id = current_user.id    
     respond_to do |format|
@@ -28,9 +49,9 @@ def new
 #      format.html # new.html.erb
 #      format.xml  { render :xml => @customer }
 #    end
-end
+ end
 
-def edit
+ def edit
     @customer = Customer.find(params[:id])
  end
 
