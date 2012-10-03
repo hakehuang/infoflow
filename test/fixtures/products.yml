@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  name: MyString
+  certification: MyString
+  manufacturer@manucature_table: MyString
+
+two:
+  name: MyString
+  certification: MyString
+  manufacturer@manucature_table: MyString
