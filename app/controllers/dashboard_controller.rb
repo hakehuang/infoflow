@@ -19,7 +19,8 @@ def update_range
       #when $enum_page[2]
       when $enum_page[3]
     	@options = Contract.attribute_names
-      #when $enum_page[4]
+      when $enum_page[4]
+    	@options = Product.attribute_names
       #when $enum_page[5]
       else
         @options = ""
@@ -46,13 +47,25 @@ end
 def contract
     @searchable = 1
     @options = Contract.attribute_names
-    @default = @options[3]
+    @default = @options[1]
     @page_id = 3
     $cdefault = "contract"
     $current_page = $enum_page[3]
     @contracts = Contract.paginate(:page => params[:page], :per_page => 30)
     render 'index'
 end
+
+def product
+    @searchable = 1
+    @options = Product.attribute_names
+    @default = @options[1]
+    @page_id = 4
+    $cdefault = "product"
+    $current_page = $enum_page[4]
+    @products = Product.paginate(:page => params[:page], :per_page => 30)
+    render 'index'
+end
+
 
  #def update
  #   @customer = Customer.find(params[:id])

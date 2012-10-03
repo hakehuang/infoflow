@@ -2,8 +2,14 @@ class ProductsController < ApplicationController
   # GET /products
   # GET /products.json
   def index
-    @products = Product.all
-
+    @searchable = 1
+    @options = Product.attribute_names
+    @default = @options[4]
+    if ! params[:id].nil?
+    @products = Product.where("id" +  " LIKE :range", :range => "%" +  params[:id] + "%").paginate(:page => params[:page], :per_page => 30)
+    else
+    @products = Product.paginate(:page => params[:page], :per_page => 30)
+    end
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @products }
@@ -19,6 +25,7 @@ class ProductsController < ApplicationController
       format.html # show.html.erb
       format.json { render json: @product }
     end
+
   end
 
   # GET /products/new
@@ -27,8 +34,13 @@ class ProductsController < ApplicationController
     @product = Product.new
 
     respond_to do |format|
-      format.html # new.html.erb
-      format.json { render json: @product }
+      if @product.save
+        format.html { redirect_to dashboard_product_path(@product) , :notice => "create product" }
+        format.xml  { render :xml => @product, :status => :created, :location => @product }
+      else
+        format.html { render :action => "new" }
+        format.xml  { render :xml => @product.errors, :status => :unprocessable_entity }
+      end
     end
   end
 
