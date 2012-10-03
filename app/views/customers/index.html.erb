@@ -30,7 +30,7 @@
  <tbody>
 <% @customers.each do |customer| %>
   <tr>
-<%= form_for(customer) do |f| %>
+<!-- %= form_for(customer) do |f| % -->
     <td><%=  best_in_place customer, :Market %></td>
     <td><%= best_in_place customer, :name %></td>
     <td><%= best_in_place customer,:id %></td>
@@ -64,7 +64,7 @@
         <% end  %>
         <% end %>
     </td>
- <% end %>
+ <!-- % end % -->
   </tr>
 <% end %>
  </tbody>

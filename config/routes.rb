@@ -8,6 +8,7 @@ Infoflow::Application.routes.draw do
   match '/dashboard/customer' => "dashboard#customer"
   match '/dashboard/contract' => "dashboard#contract"
   match '/dashboard/product' => "dashboard#product"
+  match '/contracts/add_product' => "contracts#add_product"
   match "/update_range" => "dashboard#update_range"
   match '/search' => "search_engine#do_search"
 

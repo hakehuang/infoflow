@@ -19,7 +19,7 @@
  <tbody>
 <% @contracts.each do |contract| %>
   <tr>
-  <%= form_for(contract) do |f| %>
+  <!--%= form_for(contract) do |f| %-->
     <td><%=  best_in_place contract, :No %></td>
     <td><%= best_in_place contract, :deposit_rcvd, :type => :date %></td>
     <td><%= best_in_place contract,:expected_ship_date, :type => :date %></td>
@@ -41,6 +41,17 @@
     <% if  contract.products.exists?  %>
     <% link_to "contracted products", products_path(:contract => contract.id)%>
     <%end%>
+    <% @poptions = Set.new  %>
+    <% Product.all.each do |f|  %>
+         <% @poptions.add(f.name) %>
+    <% end  %>
+    <% if ! @poptions.nil? %>
+     <%= form_tag '/contracts/add_product', :method => 'get' do%>
+     <%= select_tag "add_product", options_for_select(@poptions) %>
+     <%= text_field 'contract','id', :value => contract.id, :size => 2  %>
+     <%= submit_tag t(:add_product) %>
+     <% end %>
+    <!--% end  %-->
     </td>
     <td></td>
     <td><%= contract.versions.length %>

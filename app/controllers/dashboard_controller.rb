@@ -10,7 +10,6 @@ end
 
 def update_range
    @searchable=1
-   logger.info "DEBUGING update_range"
    case params[:cata]
       when $enum_page[0]
     	@options = Customer.attribute_names

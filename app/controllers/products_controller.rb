@@ -55,7 +55,7 @@ class ProductsController < ApplicationController
   # POST /products.json
   def create
     @product = Product.new(params[:product])
-
+    @product.serial_no = "P" + Time.now.year.to_s + Time.now.month.to_s + Time.now.mday.to_s + rand(1000).to_s 
     respond_to do |format|
       if @product.save
         format.html { redirect_to @product, notice: 'Product was successfully created.' }

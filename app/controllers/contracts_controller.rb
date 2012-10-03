@@ -6,7 +6,7 @@ class ContractsController < ApplicationController
     @default = @options[1]
     $cdefault = $coptions[3]
     if ! params[:customer].nil?
-    @contracts = Contract.where("customer_id" +  " LIKE :range", :range => "%" +  params[:customer] + "%").paginate(:page => params[:page], :per_page => 30)
+    @contracts = Contract.where("customer_id" + " LIKE :range", :range => "%" +  params[:customer] + "%").paginate(:page => params[:page], :per_page => 30)
     else
     @contracts = Contract.paginate(:page => params[:page], :per_page => 30)
     end
@@ -14,6 +14,23 @@ class ContractsController < ApplicationController
 	format.html # index.html.erb
 	format.xml  
     end
+ end
+ 
+ def add_product
+  if ! params[:add_product].nil?
+     @contract = Contract.find(params[:contract][:id]) 
+     @contract.products = Product.where("name" + " LIKE :range", :range => "%" + params[:add_product] + "%")
+    respond_to do |format|
+      if @contract.save
+        format.html { redirect_to dashboard_contract_path(@contract) , :notice => "add product" }
+        format.xml  { render :xml => @contract, :status => :created, :location => @contract }
+      else
+        @isnew = 1
+        format.html { render :action => "new" }
+        format.xml  { render :xml => @contract.errors, :status => :unprocessable_entity }
+      end
+    end
+  end
  end
 
  def new
