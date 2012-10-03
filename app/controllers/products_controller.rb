@@ -32,7 +32,7 @@ class ProductsController < ApplicationController
   # GET /products/new.json
   def new
     @product = Product.new
-
+    @product.serial_no = "P" + Time.now.year.to_s + Time.now.month.to_s + Time.now.mday.to_s + rand(1000).to_s 
     respond_to do |format|
       if @product.save
         format.html { redirect_to dashboard_product_path(@product) , :notice => "create product" }

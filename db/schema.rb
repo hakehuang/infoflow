@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121003081621) do
+ActiveRecord::Schema.define(:version => 20121003104653) do
 
   create_table "contracts", :force => true do |t|
     t.string   "No"
@@ -57,7 +57,10 @@ ActiveRecord::Schema.define(:version => 20121003081621) do
     t.string   "certification"
     t.datetime "created_at",    :null => false
     t.datetime "updated_at",    :null => false
+    t.string   "serial_no"
   end
+
+  add_index "products", ["serial_no"], :name => "index_products_on_serial_no", :unique => true
 
   create_table "users", :force => true do |t|
     t.string   "email",                  :default => "", :null => false

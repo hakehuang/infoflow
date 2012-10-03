@@ -3,6 +3,7 @@
 <table id="product" class="display">
  <thead> 
   <tr>
+    <th>Serial</th>
     <th>Name</th>
     <th>Certification</th>
     <th>Manufacturer</th>
@@ -12,6 +13,7 @@
 <% @products.each do |product| %>
   <tr>
   <%= form_for(product) do |f| %>
+    <td><%= best_in_place product, :serial_no %></td>
     <td><%= best_in_place product, :name %></td>
     <td><%= best_in_place product, :certification %></td>
     <td></td>
