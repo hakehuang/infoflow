@@ -7,6 +7,8 @@ class ProductsController < ApplicationController
     @default = @options[4]
     if ! params[:id].nil?
     @products = Product.where("id" +  " LIKE :range", :range => "%" +  params[:id] + "%").paginate(:page => params[:page], :per_page => 30)
+    else if ! params[:contract].nil?
+    @products = Product.where("contract_id" +  " LIKE :range", :range => "%" +  params[:id] + "%").paginate(:page => params[:page], :per_page => 30)
     else
     @products = Product.paginate(:page => params[:page], :per_page => 30)
     end

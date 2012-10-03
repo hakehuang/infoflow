@@ -38,6 +38,9 @@
         <% end  %>
      </td>
     <td>
+    <% if  contract.products.exists?  %>
+    <% link_to "contracted products", products_path(:contract => contract.id)%>
+    <%end%>
     </td>
     <td></td>
     <td><%= contract.versions.length %>
