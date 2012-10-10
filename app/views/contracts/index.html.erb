@@ -38,8 +38,8 @@
         <% end  %>
      </td>
     <td>
-    <% if  contract.products.exists?  %>
-    <% link_to "contracted products", products_path(:contract => contract.id)%>
+    <% if  contract.products.exists %>
+    <%= link_to "contracted products", products_path(:contract => contract.id)%>
     <%end%>
     <% @poptions = Set.new  %>
     <% Product.all.each do |f|  %>

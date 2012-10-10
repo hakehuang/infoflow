@@ -17,11 +17,16 @@ class ContractsController < ApplicationController
  end
  
  def add_product
+
   if ! params[:add_product].nil?
      @contract = Contract.find(params[:contract][:id]) 
-     @contract.products = Product.where("name" + " LIKE :range", :range => "%" + params[:add_product] + "%")
+     #@contract.products = Product.where("name" + " LIKE :range", :range => "%" + params[:add_product] + "%")
+     @join = ContractsProducts.new
+     @join.product_id = params[:add_product]
+     @join.contract_id = params[:contract][:id]
+     
     respond_to do |format|
-      if @contract.save
+      if @contract.save and @join.save
         format.html { redirect_to dashboard_contract_path(@contract) , :notice => "add product" }
         format.xml  { render :xml => @contract, :status => :created, :location => @contract }
       else
