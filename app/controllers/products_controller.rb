@@ -8,9 +8,10 @@ require 'will_paginate/array'
     @default = @options[4]
     if ! params[:id].nil?
     @products = Product.where("id" +  " LIKE :range", :range => "%" +  params[:id] + "%").paginate(:page => params[:page], :per_page => 30)
-    end
-    if ! params[:contract].nil?
+    elsif ! params[:contract].nil?
     @products = Product.find(:all, :joins => :contracts, :conditions => { :contracts => {:id => params[:contract]} }).paginate(:page => params[:page], :per_page => 30)
+    elsif ! params[:manufacture].nil?
+    @products = Product.find(:all, :joins => :manufactures, :conditions => { :manufactures => {:id => params[:manufacture]} }).paginate(:page => params[:page], :per_page => 30)
     else
     @products = Product.paginate(:page => params[:page], :per_page => 30)
     end

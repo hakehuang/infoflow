@@ -16,6 +16,10 @@
 	<th>revision</th>
   </tr>
   </thead>
+    <% @poptions = Set.new  %>
+    <% Product.all.each do |f|  %>
+         <% @poptions.add(f.name) %>
+    <% end  %>
  <tbody>
 <% @contracts.each do |contract| %>
   <tr>
@@ -41,10 +45,6 @@
     <% if  contract.products.exists %>
     <%= link_to "contracted products", products_path(:contract => contract.id)%>
     <%end%>
-    <% @poptions = Set.new  %>
-    <% Product.all.each do |f|  %>
-         <% @poptions.add(f.name) %>
-    <% end  %>
     <% if ! @poptions.nil? %>
      <%= form_tag '/contracts/add_product', :method => 'get' do%>
      <%= select_tag "add_product", options_for_select(@poptions) %>

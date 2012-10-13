@@ -10,14 +10,31 @@
     <th>revision</th>
   </tr>
  </thead>
+      <% @poptions = Set.new  %>
+      <% Product.all.each do |f|  %>
+         <% @poptions.add(f.name) %>
+      <% end%>
  <tbody>
 <% @manufactures.each do |manufacture| %>
   <tr>
     <% manufacture.attribute_names.each do |name| %>
     <td><%= best_in_place manufacture, name %></td>
     <% end  %>
-    <td></td>
+    <td> 
+      <%= link_to "products", products_path(:manufacture => manufacture.id)%>
+      <br />
+      <%= link_to "add a new product", manufactures_add_new_product_path(:manufacture => manufacture.id)%>
+      <br />
+    <% if ! @poptions.nil? %>
+     <%= form_tag '/manufactures/add_product', :method => 'get' do%>
+     <%= select_tag "add_product", options_for_select(@poptions) %>
+     <%= text_field 'manufacture','id', :value => manufacture.id, :size => 2  %>
+     <%= submit_tag t(:add_product) %>
+     <% end %>
+    <% end %>
+    </td>
     <td><%= manufacture.versions.length  %></td>
+    <%= manufacture.products.count %>
   </tr>
 <% end %>
 </tbody>

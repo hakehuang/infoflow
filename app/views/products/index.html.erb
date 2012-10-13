@@ -16,7 +16,13 @@
     <% Product.attribute_names.each do |name| %>
     <td><%= best_in_place product, name %></td>
     <% end  %>
-    <td></td>
+    <td>
+    <%= link_to "manufactures", manufactures_path(:product => product.id)%>
+    <br />
+    <%= link_to "add a New Manufacture"  %>
+      <br />
+      TODO HERE 
+     </td>
     <td><%= product.versions.length  %></td>
   </tr>
 <% end %>

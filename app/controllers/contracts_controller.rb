@@ -19,24 +19,25 @@ class ContractsController < ApplicationController
  def add_product
 
   if ! params[:add_product].nil?
-     #@contract = Contract.find(params[:contract][:id]) 
-     #@contract.products = Product.where("name" + " LIKE :range", :range => "%" + params[:add_product] + "%")
-     #@contracts = Contract.find(:all, :joins => :contracts_products, :conditions => { :contracts_products => {:name => 'business'} })
+     @product = Product.find(:all, :conditions => {:name => params[:add_product]})
+     @products = Product.find(@product, :joins => :contracts, :conditions => {:contracts => {:id => params[:contract][:id]}})
+     if @products.count > 0
+      redirect_to dashboard_contract_path, :notice => "product alread add"
+      return
+     end
      @join = ContractsProducts.new
-     @join.product_id = params[:add_product]
+     @join.product_id = @product[0].id
      @join.contract_id = params[:contract][:id]
-     
-    respond_to do |format|
+
       if @join.save
-        format.html { redirect_to dashboard_contract_path(@contract) , :notice => "add product" }
-        format.xml  { render :xml => @contract, :status => :created, :location => @contract }
+        redirect_to dashboard_contract_path, :notice => "add product ok"
       else
-        @isnew = 1
-        format.html { render :action => "new" }
-        format.xml  { render :xml => @contract.errors, :status => :unprocessable_entity }
+        redirect_to dashboard_contract_path, :notice => "add product fail"
       end
-    end
+    return
   end
+    rescue ActiveRecord::RecordNotFound
+        redirect_to dashboard_contract_path, :notice => "add product no found" 
  end
 
  def new

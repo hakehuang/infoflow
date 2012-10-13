@@ -3,8 +3,11 @@ class ManufacturesController < ApplicationController
   # GET /manufactures
   # GET /manufactures.json
   def index
-    @manufactures = Manufacture.all
-
+    if ! params[:product].nil?
+      @manufactures = Manufacture.find(:all, :joins => :products, :conditions => {:products => {:id => params[:product]}}).paginate(:page => params[:page], :per_page => 30) 
+    else
+      @manufactures = Manufacture.paginate(:page => params[:page], :per_page => 30)
+    end
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @manufactures }
@@ -20,6 +23,53 @@ class ManufacturesController < ApplicationController
       format.html # show.html.erb
       format.json { render json: @manufacture }
     end
+  end
+
+  def add_product
+    @product = Product.find(:all, :conditions => {:name => params[:add_product]})
+    @products = Product.find(@product, :joins => :manufactures, :conditions => {:manufactures => {:id => params[:manufacture][:id]}})
+    if @products.count > 0
+      redirect_to dashboard_manufacture_path, :notice => "product is already add"
+      return
+    end
+    @join = ManufacturesProducts.new
+    @join.manufacture_id = params[:manufacture][:id]
+    @join.product_id = @product[0].id
+    
+      if @join.save
+        redirect_to dashboard_manufacture_path, :notice => "add product ok" 
+      else
+        redirect_to dashboard_manufacture_path, :notice => "add product fail" 
+      end
+      return
+    rescue ActiveRecord::RecordNotFound
+        redirect_to dashboard_manufacture_path, :notice => "add product no found" 
+  end
+
+  def add_new_product
+    if params[:manufacture].nil?
+      return
+    end    
+    
+    @join = ManufacturesProducts.new 
+    @product = Product.new
+    @product.serial_no = "P" + Time.now.year.to_s + Time.now.month.to_s + Time.now.mday.to_s + rand(1000).to_s
+    if @product.save
+      @join.manufacture_id = params[:manufacture] 
+      @join.product_id = @product.id
+    else
+      redirect_to dashboard_manufacture_path, :notice => "add new product fail" 
+    end
+    respond_to do |format|
+      if @join.save
+        format.html { redirect_to dashboard_product_path(@product) , :notice => "create product" }
+        format.xml  { render :xml => @product, :status => :created, :location => @product }
+      else
+        format.html { render :action => "new" }
+        format.xml  { render :xml => @product.errors, :status => :unprocessable_entity }
+      end
+    end
+
   end
 
   # GET /manufactures/new
