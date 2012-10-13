@@ -65,6 +65,18 @@ def product
     render 'index'
 end
 
+def manufacture
+    @searchable = 1
+    @options = Manufacture.attribute_names
+    @default = @options[1]
+    @page_id = 5
+    $cdefault = "manufacture"
+    $current_page = $enum_page[5]
+    @manufactures = Manufacture.paginate(:page => params[:page], :per_page => 30)
+    render 'index'
+end
+
+
 
  #def update
  #   @customer = Customer.find(params[:id])

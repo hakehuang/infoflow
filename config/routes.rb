@@ -10,6 +10,7 @@ Infoflow::Application.routes.draw do
   match '/dashboard/customer' => "dashboard#customer"
   match '/dashboard/contract' => "dashboard#contract"
   match '/dashboard/product' => "dashboard#product"
+  match '/dashboard/manufacture' => "dashboard#manufacture"
   match '/contracts/add_product' => "contracts#add_product"
   match "/update_range" => "dashboard#update_range"
   match '/search' => "search_engine#do_search"
@@ -17,6 +18,7 @@ Infoflow::Application.routes.draw do
   resources :dashboard
   resources :customers
   resources :contracts
+  resources :manufactures
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

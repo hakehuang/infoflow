@@ -1,0 +1,28 @@
+<h1><%= link_to "Listing manufactures", manufactures_path %></h1>
+
+<table id="manufacture" class="display">
+ <thead>
+  <tr>
+   <% Manufacture.attribute_names.each do |name| %>
+    <th><%= name %></th>
+    <% end  %>
+    <th>Products</th>
+    <th>revision</th>
+  </tr>
+ </thead>
+ <tbody>
+<% @manufactures.each do |manufacture| %>
+  <tr>
+    <% manufacture.attribute_names.each do |name| %>
+    <td><%= best_in_place manufacture, name %></td>
+    <% end  %>
+    <td></td>
+    <td><%= manufacture.versions.length  %></td>
+  </tr>
+<% end %>
+</tbody>
+</table>
+
+<br />
+
+<%= link_to 'New Manufacture', new_manufacture_path %>

@@ -27,7 +27,12 @@ def do_search
         $cdefault = $coptions[4]
     	@products = Product.where(@search_range + " LIKE :range", :range => "%" +  @search_condition + "%").paginate(:page => params[:page], :per_page => 30)
     	render '/products/index'
-
+    when "manufacture"
+        @options = Manufacture.attribute_names
+    	@default = @options[1]
+        $cdefault = $coptions[4]
+    	@products = Manufacture.where(@search_range + " LIKE :range", :range => "%" +  @search_condition + "%").paginate(:page => params[:page], :per_page => 30)
+    	render '/manufactures/index'
     else
    	@options = Contract.attribute_names
     	@default = @options[1]

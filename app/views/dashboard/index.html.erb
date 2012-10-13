@@ -4,14 +4,23 @@
   <%= render :template => 'customers/index' %>
 </div>
 <% end %>
+
 <% if @page_id == 3  %>
 <div class="contract">
   <%= render :template => 'contracts/index' %>
 </div>
 <% end %>
+
 <% if @page_id == 4  %>
 <div class="product">
   <%= render :template => 'products/index' %>
 </div>
 <% end %>
+
+<% if @page_id == 5 %>
+<div class="manufacture">
+  <%= render :template => 'manufactures/index' %>
+</div>
+<% end %>
+
 

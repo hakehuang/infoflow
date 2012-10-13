@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
-  $coptions = ["customer", "project", "production", "contract", "product"]
+  $coptions = ["customer", "project", "production", "contract", "product", "manufacture"]
   $cdefaults = "customer"
   $enum_page = $coptions 
   def after_sign_in_path_for(resource)
@@ -33,6 +33,12 @@ class ApplicationController < ActionController::Base
     	@default = @options[1]
         $cdefault = $coptions[4]
     	@products = Product.find(:all, :order => type +  " ASC" ).paginate(:page => params[:page], :per_page => 30)
+        when $enum_page[5]
+	@searchable = 1
+    	@options = Manufacture.attribute_names
+    	@default = @options[1]
+        $cdefault = $coptions[4]
+    	@products = Manufacture.find(:all, :order => type +  " ASC" ).paginate(:page => params[:page], :per_page => 30)
         else
     end
   end
