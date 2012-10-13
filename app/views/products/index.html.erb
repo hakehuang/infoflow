@@ -1,23 +1,21 @@
-<h1>Listing products</h1>
+<h1><%= link_to "Listing products", products_path %></h1>
 
 <table id="product" class="display">
  <thead> 
   <tr>
-    <th>Serial</th>
-    <th>Name</th>
-    <th>Certification</th>
-    <th>Manufacturer</th>
+    <% Product.attribute_names.each do |name| %>
+    <th><%= name %></th>
+    <% end  %>
+    <th>Manufactures</th>
   </tr>
   </thead>
  <tbody>
 <% @products.each do |product| %>
   <tr>
-  <%= form_for(product) do |f| %>
-    <td><%= best_in_place product, :serial_no %></td>
-    <td><%= best_in_place product, :name %></td>
-    <td><%= best_in_place product, :certification %></td>
+    <% Product.attribute_names.each do |name| %>
+    <td><%= best_in_place product, name %></td>
+    <% end  %>
     <td></td>
-  <% end  %>
   </tr>
 <% end %>
  </tbody>

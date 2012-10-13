@@ -1,4 +1,6 @@
 Infoflow::Application.routes.draw do
+  resources :manufactures
+
   resources :products
 
   devise_for :users

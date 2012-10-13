@@ -1,4 +1,5 @@
 class ProductsController < ApplicationController
+require 'will_paginate/array' 
   # GET /products
   # GET /products.json
   def index
@@ -9,7 +10,7 @@ class ProductsController < ApplicationController
     @products = Product.where("id" +  " LIKE :range", :range => "%" +  params[:id] + "%").paginate(:page => params[:page], :per_page => 30)
     end
     if ! params[:contract].nil?
-    @products = Product.all
+    @products = Product.find(:all, :joins => :contracts, :conditions => { :contracts => {:id => params[:contract]} }).paginate(:page => params[:page], :per_page => 30)
     else
     @products = Product.paginate(:page => params[:page], :per_page => 30)
     end
