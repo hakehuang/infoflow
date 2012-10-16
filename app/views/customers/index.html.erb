@@ -31,13 +31,13 @@
 <% @customers.each do |customer| %>
   <tr>
 <!-- %= form_for(customer) do |f| % -->
-    <td><%=  best_in_place customer, :Market %></td>
-    <td><%= best_in_place customer, :name %></td>
+    <td><%=  best_in_place customer, :Market, :type => :textarea %></td>
+    <td><%= best_in_place customer, :name, :type => :textarea %></td>
     <td><%= best_in_place customer,:id %></td>
-    <td><%= best_in_place customer,:Address %></td>
-    <td><%= best_in_place customer,:Postal_Code %></td>
-    <td><%= best_in_place customer,:city %></td>
-    <td><%= best_in_place customer,:Country %></td>
+    <td><%= best_in_place customer,:Address, :type => :textarea %></td>
+    <td><%= best_in_place customer,:Postal_Code, :type => :textarea %></td>
+    <td><%= best_in_place customer,:city, :type => :textarea %></td>
+    <td><%= best_in_place customer,:Country, :type => :textarea %></td>
     <td><%= best_in_place customer,:Tel %></td>
     <td><%= best_in_place customer,:Fax %></td>
     <td><%= best_in_place customer,:Contactor_a %></td>
@@ -48,8 +48,8 @@
     <td><%= best_in_place customer,:Email %></td>
     <td><%= best_in_place customer,:MSN %></td>
     <td><%= best_in_place customer,:Skype %></td>
-    <td><%= best_in_place customer,:Invoicing_Requirement %></td>
-    <td><%= best_in_place customer,:shipping_Document_requirements %></td>
+    <td><%= best_in_place customer,:Invoicing_Requirement, :type => :textarea %></td>
+    <td><%= best_in_place customer,:shipping_Document_requirements, :type => :textarea %></td>
     <td><%= link_to User.find(customer.user.id).username, edit_user_registration_path(customer.user.id) %></td>
     <td><% if customer.contracts.count  > 0 %>
         <%= link_to "ready contracts", contracts_path(:customer => customer.id)%>

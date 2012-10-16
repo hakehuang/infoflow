@@ -13,6 +13,7 @@ Infoflow::Application.routes.draw do
   match '/search' => "search_engine#do_search"
   match '/manufactures/add_new_product' => "manufactures#add_new_product"
   match '/manufactures/add_product' => "manufactures#add_product"
+  match '/manufactures/add_manufacture' => "manufactures#add_manufacture"
 
   resources :dashboard
   resources :customers

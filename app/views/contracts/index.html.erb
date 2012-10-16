@@ -28,7 +28,7 @@
     <td><%= best_in_place contract, :deposit_rcvd, :type => :date %></td>
     <td><%= best_in_place contract,:expected_ship_date, :type => :date %></td>
     <td><%= best_in_place contract,:prefoma_sales_contract, :type => :date %></td>
-    <td><%= best_in_place contract,:summary %></td>
+    <td><%= best_in_place contract,:summary, :type => :textarea %></td>
     <td><% if ! contract.customer_id.nil?  %>
  <%= link_to Customer.find(contract.customer_id).name, customers_path(:id => contract.customer_id) %>
       <% else %>

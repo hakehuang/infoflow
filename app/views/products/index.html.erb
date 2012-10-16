@@ -1,5 +1,8 @@
 <h1><%= link_to "Listing products", products_path %></h1>
-
+    <% @poptions = Set.new  %>
+    <% Manufacture.all.each do |f|  %>
+         <% @poptions.add(f.name) %>
+    <% end  %>
 <table id="product" class="display">
  <thead> 
   <tr>
@@ -14,14 +17,20 @@
 <% @products.each do |product| %>
   <tr>
     <% Product.attribute_names.each do |name| %>
-    <td><%= best_in_place product, name %></td>
+    <td><%= best_in_place product, name, :type => :textarea %></td>
     <% end  %>
     <td>
     <%= link_to "manufactures", manufactures_path(:product => product.id)%>
     <br />
-    <%= link_to "add a New Manufacture"  %>
+    <%= link_to "add a New Manufacture", new_manufacture_path(:product => product.id) %>
       <br />
-      TODO HERE 
+      <% if ! @poptions.nil? %>
+     <%= form_tag '/manufactures/add_manufacture', :method => 'get' do%>
+     <%= select_tag "add_manufacture", options_for_select(@poptions) %>
+     <%= text_field 'product','id', :value => product.id, :size => 2  %>
+     <%= submit_tag t(:add_manufacture) %>
+     <% end %>
+     <% end  %>
      </td>
     <td><%= product.versions.length  %></td>
   </tr>

@@ -18,7 +18,7 @@
 <% @manufactures.each do |manufacture| %>
   <tr>
     <% manufacture.attribute_names.each do |name| %>
-    <td><%= best_in_place manufacture, name %></td>
+    <td><%= best_in_place manufacture, name , :type => :textarea%></td>
     <% end  %>
     <td> 
       <%= link_to "products", products_path(:manufacture => manufacture.id)%>

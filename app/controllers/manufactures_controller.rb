@@ -25,6 +25,26 @@ class ManufacturesController < ApplicationController
     end
   end
 
+  def add_manufacture
+    @manufacture = Manufacture.find(:all, :conditions => {:name => params[:add_manufacture] }) 
+    @manufactures = Manufacture.find(@manufacture, :joins => :products, :conditions => {:products => {:id => params[:product][:id]}})
+    if @manufactures.count > 0
+      redirect_to products_path(:id => params[:product][:id]), :notice => "manufacture for this product is alread add"
+      return
+    end
+    @join = ManufacturesProducts.new
+    @join.product_id = params[:product][:id]
+    @join.manufacture_id = @manufacture[0].id
+    
+      if @join.save
+        redirect_to products_path(:id => params[:product][:id]), :notice => "add manufacture ok" 
+      else
+        redirect_to products_path(:id => params[:product][:id]), :notice => "add manufacture fail" 
+      end
+
+     
+  end
+
   def add_product
     @product = Product.find(:all, :conditions => {:name => params[:add_product]})
     @products = Product.find(@product, :joins => :manufactures, :conditions => {:manufactures => {:id => params[:manufacture][:id]}})
@@ -75,6 +95,7 @@ class ManufacturesController < ApplicationController
   # GET /manufactures/new
   # GET /manufactures/new.json
   def new
+    
     @manufacture = Manufacture.new
     
     respond_to do |format|

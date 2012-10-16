@@ -1,4 +1,5 @@
 class DashboardController < ApplicationController
+require 'will_paginate/array' 
 $current_page = $enum_page[0]
 
 def index
