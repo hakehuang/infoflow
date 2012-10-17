@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121013104845) do
+ActiveRecord::Schema.define(:version => 20121017061224) do
 
   create_table "contracts", :force => true do |t|
     t.string   "No"
@@ -80,6 +80,20 @@ ActiveRecord::Schema.define(:version => 20121013104845) do
     t.integer  "product_id"
     t.datetime "created_at",     :null => false
     t.datetime "updated_at",     :null => false
+  end
+
+  create_table "productions", :force => true do |t|
+    t.date     "factory_counter_sample_date"
+    t.date     "customer_approval_of_counter_sample_date"
+    t.date     "start_date"
+    t.date     "pre_production_sample_approval_date"
+    t.date     "qc_during_production_date"
+    t.date     "final_qc_date"
+    t.integer  "users_id"
+    t.integer  "customers_id"
+    t.integer  "contracts_id"
+    t.datetime "created_at",                               :null => false
+    t.datetime "updated_at",                               :null => false
   end
 
   create_table "products", :force => true do |t|

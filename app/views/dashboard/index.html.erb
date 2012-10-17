@@ -1,26 +1,31 @@
 
-<% if @page_id == 0  %>
+<% if ! $cdefault.nil?  %>
+<% case $cdefault %>
+<% when "customer" %>
 <div class="customer">
   <%= render :template => 'customers/index' %>
 </div>
-<% end %>
-
-<% if @page_id == 3  %>
+<% when "production" %>
+<div class="production">
+  <%= render :template => 'productions/index' %>
+</div>
+<% when "contract" %>
 <div class="contract">
   <%= render :template => 'contracts/index' %>
 </div>
-<% end %>
-
-<% if @page_id == 4  %>
+<% when "product" %>
 <div class="product">
   <%= render :template => 'products/index' %>
 </div>
-<% end %>
-
-<% if @page_id == 5 %>
+<% when "manufacture" %>
 <div class="manufacture">
   <%= render :template => 'manufactures/index' %>
 </div>
-<% end %>
+<% else %>
 
+<% end  %>
+
+Welcome to info-flow manager system!
+<br />
+<% end  %>
 

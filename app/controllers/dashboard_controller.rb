@@ -15,13 +15,15 @@ def update_range
       when $enum_page[0]
     	@options = Customer.attribute_names
       #when $enum_page[1]
-        
-      #when $enum_page[2]
-      when $enum_page[3]
-    	@options = Contract.attribute_names
+      when $enum_page[2]
+    	@options = Production.attribute_names
+      #when $enum_page[3]
       when $enum_page[4]
+    	@options = Contract.attribute_names
+      when $enum_page[5]
     	@options = Product.attribute_names
-      #when $enum_page[5]
+      when $enum_page[6]
+    	@options = Manufacture.attribute_names
       else
         @options = ""
    end
@@ -37,29 +39,37 @@ def customer
     @searchable = 1
     @options = Customer.attribute_names
     @default = @options[0]
-    @page_id = 0
     $cdefault = "customer"
     $current_page = $enum_page[0]
     @customers = Customer.paginate(:page => params[:page], :per_page => 30)
    render 'index'
 end
 
+def production
+    @searchable = 1
+    @options = Production.attribute_names
+    @default = @options[1]
+    $cdefault = "production"
+    $current_page = $enum_page[2]
+    @productions = Production.paginate(:page => params[:page], :per_page => 30)
+    render 'index'
+end
+
 def contract
     @searchable = 1
     @options = Contract.attribute_names
     @default = @options[1]
-    @page_id = 3
     $cdefault = "contract"
-    $current_page = $enum_page[3]
+    $current_page = $enum_page[4]
     @contracts = Contract.paginate(:page => params[:page], :per_page => 30)
     render 'index'
 end
+
 
 def product
     @searchable = 1
     @options = Product.attribute_names
     @default = @options[1]
-    @page_id = 4
     $cdefault = "product"
     $current_page = $enum_page[4]
     @products = Product.paginate(:page => params[:page], :per_page => 30)
@@ -70,7 +80,6 @@ def manufacture
     @searchable = 1
     @options = Manufacture.attribute_names
     @default = @options[1]
-    @page_id = 5
     $cdefault = "manufacture"
     $current_page = $enum_page[5]
     @manufactures = Manufacture.paginate(:page => params[:page], :per_page => 30)

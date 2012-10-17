@@ -1,0 +1,21 @@
+<h1><%= link_to "Listing productions", productions_path %></h1>
+
+<table id="production" class="display">
+  <tr>
+    <% Production.attribute_names.each do |name| %>
+    <th><%= name %></th>
+    <% end  %>
+  </tr>
+
+<% @productions.each do |production| %>
+  <tr>
+    <% Production.attribute_names.each do |name| %>
+    <td><%= best_in_place production, name, :type => :textarea %></td>
+    <% end  %>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Production', new_production_path %>

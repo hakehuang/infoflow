@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
-  $coptions = ["customer", "project", "production", "contract", "product", "manufacture"]
+  $coptions = ["customer", "project", "production", "shipment","contract", "product", "manufacture"]
   $cdefaults = "customer"
   $enum_page = $coptions 
   def after_sign_in_path_for(resource)
