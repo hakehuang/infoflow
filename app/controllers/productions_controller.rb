@@ -6,7 +6,7 @@ class ProductionsController < ApplicationController
     @options = Production.attribute_names
     @default = @options[1]
     if ! params[:id].nil?
-      @productionss = Production.where("id" +  " LIKE :range", :range => "%" +  params[:id] + "%").paginate(:page => params[:page], :per_page => 30)
+      @productions = Production.where("id" +  " LIKE :range", :range => "%" +  params[:id] + "%").paginate(:page => params[:page], :per_page => 30)
     else
       @productions = Production.paginate(:page => params[:page], :per_page => 30)
     end
@@ -31,13 +31,12 @@ class ProductionsController < ApplicationController
   # GET /productions/new
   # GET /productions/new.json
   def new
-    if params[:customer].nil? or params[:contract].nil?
+    if params[:project].nil?
       return
     end
     @production = Production.new
     @production.user_id = current_user.id
-    @production.customer_id = params[:customer]
-    @production.contract_id = params[:contract]
+    @production.project_id = params[:project]
         
     respond_to do |format|
       if @production.save

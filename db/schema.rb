@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121017061224) do
+ActiveRecord::Schema.define(:version => 20121017135220) do
 
   create_table "contracts", :force => true do |t|
     t.string   "No"
@@ -89,9 +89,8 @@ ActiveRecord::Schema.define(:version => 20121017061224) do
     t.date     "pre_production_sample_approval_date"
     t.date     "qc_during_production_date"
     t.date     "final_qc_date"
-    t.integer  "users_id"
-    t.integer  "customers_id"
-    t.integer  "contracts_id"
+    t.integer  "user_id"
+    t.integer  "project_id"
     t.datetime "created_at",                               :null => false
     t.datetime "updated_at",                               :null => false
   end
@@ -105,6 +104,17 @@ ActiveRecord::Schema.define(:version => 20121017061224) do
   end
 
   add_index "products", ["serial_no"], :name => "index_products_on_serial_no", :unique => true
+
+  create_table "projects", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "customer_id"
+    t.integer  "contract_id"
+    t.string   "inquiry_from"
+    t.date     "start_date"
+    t.date     "rcv_customer_sample_date"
+    t.datetime "created_at",               :null => false
+    t.datetime "updated_at",               :null => false
+  end
 
   create_table "users", :force => true do |t|
     t.string   "email",                  :default => "", :null => false

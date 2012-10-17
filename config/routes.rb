@@ -1,5 +1,7 @@
 Infoflow::Application.routes.draw do
 
+  resources :projects
+
   resources :productions
 
   devise_for :users

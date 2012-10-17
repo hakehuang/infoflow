@@ -7,9 +7,8 @@ class CreateProductions < ActiveRecord::Migration
       t.date :pre_production_sample_approval_date
       t.date :qc_during_production_date
       t.date :final_qc_date
-      t.references :users      
-      t.references :customers
-      t.references :contracts
+      t.references :user     
+      t.references :project
       t.timestamps
     end
   end
