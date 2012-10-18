@@ -1,17 +1,21 @@
-<h1>Listing projects</h1>
+<h1><%= link_to "Listing projects", projects_path %></h1>
 
-<table>
+<table id="projects" class="display">
   <tr>
-    <th></th>
-    <th></th>
-    <th></th>
+    <% Project.attribute_names.each do |name| %>
+    <th><%= name %></th>
+    <% end  %>
   </tr>
 
 <% @projects.each do |project| %>
   <tr>
-    <td><%= link_to 'Show', project %></td>
-    <td><%= link_to 'Edit', edit_project_path(project) %></td>
-    <td><%= link_to 'Destroy', project, confirm: 'Are you sure?', method: :delete %></td>
+    <% Production.attribute_names.each do |name| %>
+    <% if ! $attr_constrains.nil? and $attr_constrains.member?(name)  %>
+      <td><%= f.label name  %></td>
+    <% else  %>
+      <td><%= best_in_place production, name, :type => :textarea %></td>
+    <% end  %>
+    <% end  %>
   </tr>
 <% end %>
 </table>

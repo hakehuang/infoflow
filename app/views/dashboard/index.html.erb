@@ -5,6 +5,10 @@
 <div class="customer">
   <%= render :template => 'customers/index' %>
 </div>
+<% when "project" %>
+<div class="project">
+  <%= render :template => 'projects/index' %>
+</div>
 <% when "production" %>
 <div class="production">
   <%= render :template => 'productions/index' %>

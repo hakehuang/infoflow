@@ -9,6 +9,7 @@ Infoflow::Application.routes.draw do
   root :to => "home#index"
 
   match '/dashboard/customer' => "dashboard#customer"
+  match '/dashboard/project' => "dashboard#project"
   match '/dashboard/production' => "dashboard#production"
   match '/dashboard/product' => "dashboard#product"
   match '/dashboard/contract' => "dashboard#contract"
@@ -21,6 +22,7 @@ Infoflow::Application.routes.draw do
   match '/manufactures/add_manufacture' => "manufactures#add_manufacture"
 
   resources :dashboard
+  resources :projects
   resources :customers
   resources :contracts
   resources :manufactures

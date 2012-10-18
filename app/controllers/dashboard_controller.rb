@@ -45,6 +45,16 @@ def customer
    render 'index'
 end
 
+def project
+    @searchable = 1
+    @options = Project.attribute_names
+    @default = @options[1]
+    $cdefault = "project"
+    $current_page = $enum_page[1]
+    @projects = Project.paginate(:page => params[:page], :per_page => 30)
+    render 'index'
+end
+
 def production
     @searchable = 1
     @options = Production.attribute_names
