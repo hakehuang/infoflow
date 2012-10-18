@@ -1,7 +1,6 @@
 class ProjectsController < ApplicationController
   # GET /projects
   # GET /projects.json
-$attr_constrains=["id" , "serial_no"]
 
   def index
     @searchable = 1
@@ -36,8 +35,9 @@ $attr_constrains=["id" , "serial_no"]
       redirect_to dashboard_project_path, :notice => "contract info missing"
       return
     end
-    @oldcntr = Contract.find(:all, :conditions => {:No => params[:contract]})
-    @projects = Project.find(:all, :conditions => {:contract => @oldcntr.id})
+    #@oldcntr = Contract.find(:all, :conditions => {:No => params[:contract]})
+    @oldcntr = Contract.find(params[:contract])
+    @projects = Project.find(:all, :conditions => {:contract_id => @oldcntr.id})
     if @projects.count > 0
       redirect_to dashboard_project_path, :notice => "project has created for this contract"
       return

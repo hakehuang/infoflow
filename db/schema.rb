@@ -107,7 +107,6 @@ ActiveRecord::Schema.define(:version => 20121017135220) do
 
   create_table "projects", :force => true do |t|
     t.integer  "user_id"
-    t.integer  "customer_id"
     t.integer  "contract_id"
     t.string   "inquiry_from"
     t.date     "start_date"

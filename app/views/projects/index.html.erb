@@ -7,13 +7,14 @@
     <% end  %>
   </tr>
 
+<% @attr_constrains = ["id" ,"contract_id", "user_id"] %>
 <% @projects.each do |project| %>
   <tr>
-    <% Production.attribute_names.each do |name| %>
-    <% if ! $attr_constrains.nil? and $attr_constrains.member?(name)  %>
-      <td><%= f.label name  %></td>
-    <% else  %>
-      <td><%= best_in_place production, name, :type => :textarea %></td>
+    <% Project.attribute_names.each do |name| %>
+    <% if ( ! @attr_constrains.nil? ) and @attr_constrains.member?(name)  %>
+      <td><%= project.send(name) %></td>
+    <% else %>
+      <td><%= best_in_place project, name, :type => :date %></td>
     <% end  %>
     <% end  %>
   </tr>
@@ -21,5 +22,3 @@
 </table>
 
 <br />
-
-<%= link_to 'New Project', new_project_path %>

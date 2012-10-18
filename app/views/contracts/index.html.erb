@@ -53,7 +53,13 @@
      <% end %>
     <!--% end  %-->
     </td>
-    <td></td>
+    <td>
+      <% if contract.projects.count > 0  %>
+      <%= link_to "contract projects", projects_path(:contract => contract.id)  %>
+      <% end %>
+      <br />
+      <%= link_to "create a new project", new_project_path(:contract => contract.id) %>
+    </td>
     <td><%= contract.versions.length %>
         <% if user_signed_in?   %>
         <% if (current_user.username == "admin")  %>
