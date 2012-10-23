@@ -12,7 +12,8 @@
   <tr>
     <% Project.attribute_names.each do |name| %>
     <% if ( ! @attr_constrains.nil? ) and @attr_constrains.member?(name)  %>
-      <td><%= project.send(name) %></td>
+       <% @id = project.send(name)  %>
+      <td><%= link_to name, projects_sub_path_path(:name => name, :id => @id)  %></td>
     <% else %>
       <td><%= best_in_place project, name, :type => :date %></td>
     <% end  %>

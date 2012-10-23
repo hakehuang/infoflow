@@ -16,6 +16,19 @@ class ProjectsController < ApplicationController
       format.json { render json: @projects }
     end
   end
+  
+  def sub_path
+    case params[:name]
+      when "contract_id"
+      redirect_to contracts_path(:id=>params[:id]), notice => "to contract"
+      when "user_id"
+      redirect_to users_path(:id=>params[:id]), notice => "to contract"
+      when "id"
+      redirect_to projects_path(:id=>params[:id]), notice => "to contract"
+      else
+      return
+    end
+  end
 
   # GET /projects/1
   # GET /projects/1.json

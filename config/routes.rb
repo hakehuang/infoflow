@@ -1,8 +1,5 @@
 Infoflow::Application.routes.draw do
 
-  resources :projects
-
-  resources :productions
 
   devise_for :users
 
@@ -15,6 +12,7 @@ Infoflow::Application.routes.draw do
   match '/dashboard/contract' => "dashboard#contract"
   match '/dashboard/manufacture' => "dashboard#manufacture"
   match '/contracts/add_product' => "contracts#add_product"
+  match '/projects/sub_path' => "projects#sub_path"
   match "/update_range" => "dashboard#update_range"
   match '/search' => "search_engine#do_search"
   match '/manufactures/add_new_product' => "manufactures#add_new_product"
@@ -26,8 +24,8 @@ Infoflow::Application.routes.draw do
   resources :customers
   resources :contracts
   resources :manufactures
-  resources :manufactures
   resources :products
+  resources :productions
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
