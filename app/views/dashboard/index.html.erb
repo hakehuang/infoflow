@@ -13,6 +13,10 @@
 <div class="production">
   <%= render :template => 'productions/index' %>
 </div>
+<% when "shipment" %>
+<div class="shipment">
+  <%= render :template => 'shipments/index' %>
+</div>
 <% when "contract" %>
 <div class="contract">
   <%= render :template => 'contracts/index' %>

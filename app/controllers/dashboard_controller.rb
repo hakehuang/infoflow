@@ -14,10 +14,12 @@ def update_range
    case params[:cata]
       when $enum_page[0]
     	@options = Customer.attribute_names
-      #when $enum_page[1]
+      when $enum_page[1]
+    	@options = Project.attribute_names
       when $enum_page[2]
     	@options = Production.attribute_names
-      #when $enum_page[3]
+      when $enum_page[3]
+    	@options = Shipment.attribute_names
       when $enum_page[4]
     	@options = Contract.attribute_names
       when $enum_page[5]
@@ -62,6 +64,16 @@ def production
     $cdefault = "production"
     $current_page = $enum_page[2]
     @productions = Production.paginate(:page => params[:page], :per_page => 30)
+    render 'index'
+end
+
+def shipment
+    @searchable = 1
+    @options = Shipment.attribute_names
+    @default = @options[1]
+    $cdefault = "shipment"
+    $current_page = $enum_page[3]
+    @shipments = Shipment.paginate(:page => params[:page], :per_page => 30)
     render 'index'
 end
 

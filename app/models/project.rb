@@ -3,4 +3,5 @@ class Project < ActiveRecord::Base
   belongs_to :user
   belongs_to :contract
   has_many :productions
+  has_many :shipments
 end

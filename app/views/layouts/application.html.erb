@@ -197,7 +197,7 @@ window.onload=staticbar
             <%= link_to image_tag("calendar.png", :mouseover => "calendar_large.png"), dashboard_production_path %> <br> Productions  
             </li>  
             <li>  
-            <%= image_tag("map.png", :mouseover => "map_large.png") %> <br> Shipment status
+            <%= link_to image_tag("map.png", :mouseover => "map_large.png"), dashboard_shipment_path  %> <br> Shipment status
             </li>  
             <li>  
             <%= link_to image_tag("note.png", :mouseover => "note_large.png"), dashboard_contract_path %> <br> Contract

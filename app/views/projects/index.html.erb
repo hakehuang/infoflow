@@ -5,6 +5,7 @@
     <% Project.attribute_names.each do |name| %>
     <th><%= name %></th>
     <% end  %>
+    <th>Shipments</th>
   </tr>
 
 <% @attr_constrains = ["id" ,"contract_id", "user_id"] %>
@@ -12,12 +13,15 @@
   <tr>
     <% Project.attribute_names.each do |name| %>
     <% if ( ! @attr_constrains.nil? ) and @attr_constrains.member?(name)  %>
-       <% @id = project.send(name)  %>
-      <td><%= link_to name, projects_sub_path_path(:name => name, :id => @id)  %></td>
+      <td><%= link_to name, projects_sub_path_path(:name => name, :id => project.send(name))  %></td>
     <% else %>
       <td><%= best_in_place project, name, :type => :date %></td>
     <% end  %>
     <% end  %>
+    <td>
+      <%= link_to "add new shipment", new_shipment_path(:project => project.id) %>
+      <%= link_to "shipment status", shipments_path(:project => project.id) %>
+    </td>
   </tr>
 <% end %>
 </table>

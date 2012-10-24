@@ -1,6 +1,8 @@
 Infoflow::Application.routes.draw do
 
 
+  resources :shipments
+
   devise_for :users
 
   root :to => "home#index"
@@ -10,15 +12,18 @@ Infoflow::Application.routes.draw do
   match '/dashboard/production' => "dashboard#production"
   match '/dashboard/product' => "dashboard#product"
   match '/dashboard/contract' => "dashboard#contract"
+  match '/dashboard/shipment' => "dashboard#shipment"
   match '/dashboard/manufacture' => "dashboard#manufacture"
   match '/contracts/add_product' => "contracts#add_product"
   match '/projects/sub_path' => "projects#sub_path"
+  match '/shipments/sub_path' => "shipments#sub_path"
   match "/update_range" => "dashboard#update_range"
   match '/search' => "search_engine#do_search"
   match '/manufactures/add_new_product' => "manufactures#add_new_product"
   match '/manufactures/add_product' => "manufactures#add_product"
   match '/manufactures/add_manufacture' => "manufactures#add_manufacture"
 
+  resources :shipments
   resources :dashboard
   resources :projects
   resources :customers

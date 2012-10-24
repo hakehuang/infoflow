@@ -1,0 +1,25 @@
+<h1>Listing shipments</h1>
+
+<table id="shipment" class="display">
+  <tr>
+    <% Shipment.attribute_names.each do |name| %>
+    <th><%= name %></th>
+    <% end  %>
+  </tr>
+
+<% @attr_constrains = ["id"] %>
+<% @shipments.each do |shipment| %>
+  <tr>
+    <% Shipment.attribute_names.each do |name| %>
+    <% if ( ! @attr_constrains.nil? ) and @attr_constrains.member?(name)  %>
+      <td><%= link_to name, shipments_sub_path_path(:name => name, :id => shipment.send(name))  %></td>
+    <% else %>
+    <td><%= best_in_place shipment, name, :type => :textarea %></td>
+    <% end  %>
+    <% end  %>
+  </tr>
+<% end %>
+</table>
+
+<br />
+

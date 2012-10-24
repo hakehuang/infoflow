@@ -24,27 +24,32 @@ class ApplicationController < ActionController::Base
         when $enum_page[1]
         @options = Project.attribute_names
     	@default = @options[1]
-        $cdefault = $coptions[0]
+        $cdefault = $coptions[1]
     	@projects = Project.find(:all, :order => type +  " ASC" ).paginate(:page => params[:page], :per_page => 30)
         when $enum_page[2]
         @options = Production.attribute_names
     	@default = @options[1]
-        $cdefault = $coptions[0]
+        $cdefault = $coptions[2]
     	@productions = Production.find(:all, :order => type +  " ASC" ).paginate(:page => params[:page], :per_page => 30)
+        when $enum_page[3]
+        @options = Shipment.attribute_names
+    	@default = @options[1]
+        $cdefault = $coptions[3]
+    	@productions = Shipment.find(:all, :order => type +  " ASC" ).paginate(:page => params[:page], :per_page => 30)
     	when $enum_page[4]
     	@options = Contract.attribute_names
     	@default = @options[1]
-        $cdefault = $coptions[3]
+        $cdefault = $coptions[4]
     	@customers = Contract.find(:all, :order => type +  " ASC" ).paginate(:page => params[:page], :per_page => 30)
         when $enum_page[5]
     	@options = Product.attribute_names
     	@default = @options[1]
-        $cdefault = $coptions[4]
+        $cdefault = $coptions[5]
     	@products = Product.find(:all, :order => type +  " ASC" ).paginate(:page => params[:page], :per_page => 30)
         when $enum_page[6]
     	@options = Manufacture.attribute_names
     	@default = @options[1]
-        $cdefault = $coptions[4]
+        $cdefault = $coptions[6]
     	@products = Manufacture.find(:all, :order => type +  " ASC" ).paginate(:page => params[:page], :per_page => 30)
         else
 	@searchable = 0
