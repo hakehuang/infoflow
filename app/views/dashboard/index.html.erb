@@ -1,4 +1,5 @@
 
+<% if user_signed_in?  %>
 <% if ! $cdefault.nil?  %>
 <% case $cdefault %>
 <% when "customer" %>
@@ -33,7 +34,7 @@
 
 <% end  %>
 
-Welcome to info-flow manager system!
-<br />
+<% end  %>
+
 <% end  %>
 

@@ -2,15 +2,10 @@
 <html>
 <head>
   <title>Infoflow</title>
-  <!-- script type="text/javascript" src="jquery-1.7.2.min.js"></script -->
-  <!-- script type="text/javascript" src="jquery-animate-css-rotate-scale.js"></script -->
-  <!-- script type="text/javascript" src="jquery-css-transform.js"></script -->
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
-  <!-- %= javascript_include_tag :defaults % -->
 <style type="text/css">
-
 #topbar{
 position:absolute;
 border: 1px solid black;
@@ -18,21 +13,16 @@ padding: 2px;
 background-color: lightyellow;
 width: 400px;
 visibility: hidden;
-z-index: 100;
+z-index: 100
 }
-
 </style>
-
-
 <script type="text/javascript">
-
 /***********************************************
 * Floating Top Bar script- © Dynamic Drive (www.dynamicdrive.com)
 * Sliding routine by Roy Whittle (http://www.javascript-fx.com/)
 * This notice must stay intact for legal use.
 * Visit http://www.dynamicdrive.com/ for full source code
 ***********************************************/
-
 var persistclose=0 //set to 0 or 1. 1 means once the bar is manually closed, it will remain closed for browser session
 var startX = 300 //set x offset of bar in pixels
 var startY = 30 //set y offset of bar in pixels
@@ -56,13 +46,11 @@ returnvalue=unescape(document.cookie.substring(offset, end))
 }
 return returnvalue;
 }
-
 function closebar(){
 if (persistclose)
 document.cookie="remainclosed=1"
 document.getElementById("topbar").style.visibility="hidden"
 }
-
 function staticbar(){
 	barheight=document.getElementById("topbar").offsetHeight
 	var ns = (navigator.appName.indexOf("Netscape") != -1) || window.opera;
@@ -97,13 +85,12 @@ function staticbar(){
 	ftlObj = ml("topbar");
 	stayTopLeft();
 }
-
 if (window.addEventListener)
 window.addEventListener("load", staticbar, false)
 else if (window.attachEvent)
-window.attachEvent("onload", staticbar)
+ window.attachEvent("onload", staticbar)
 else if (document.getElementById)
-window.onload=staticbar
+  window.onload=staticbar
 </script>
 </head>
 <body>
@@ -188,25 +175,25 @@ window.onload=staticbar
 <div id="dashboard-menu">  
         <ul>  
             <li>  
-            <%= link_to image_tag("gauge.png", :mouseover => "gauge_large.png"), dashboard_customer_path %> <br> Customer 
+            <%= link_to image_tag("gauge.png", :mouseover => "gauge_large.png"), dashboard_customer_path %> <br /> Customer 
             </li>  
             <li>  
-            <%= link_to image_tag("mail.png", :mouseover => "mail_large.png"), dashboard_project_path %> <br> Projects
+            <%= link_to image_tag("mail.png", :mouseover => "mail_large.png"), dashboard_project_path %> <br /> Projects
             </li>  
             <li>  
-            <%= link_to image_tag("calendar.png", :mouseover => "calendar_large.png"), dashboard_production_path %> <br> Productions  
+            <%= link_to image_tag("calendar.png", :mouseover => "calendar_large.png"), dashboard_production_path %> <br /> Productions  
             </li>  
             <li>  
-            <%= link_to image_tag("map.png", :mouseover => "map_large.png"), dashboard_shipment_path  %> <br> Shipment status
+            <%= link_to image_tag("map.png", :mouseover => "map_large.png"), dashboard_shipment_path  %> <br /> Shipment status
             </li>  
             <li>  
-            <%= link_to image_tag("note.png", :mouseover => "note_large.png"), dashboard_contract_path %> <br> Contract
+            <%= link_to image_tag("note.png", :mouseover => "note_large.png"), dashboard_contract_path %> <br /> Contract
             </li>  
             <li>  
-            <%= link_to image_tag("wireless.png", :mouseover => "wireless_large.png"), dashboard_product_path %> <br> Product  
+            <%= link_to image_tag("wireless.png", :mouseover => "wireless_large.png"), dashboard_product_path %> <br /> Product  
             </li>  
             <li>  
-            <%= link_to image_tag("calculator.png", :mouseover => "calculator_large.png"), dashboard_manufacture_path %> <br> manufacturer  
+            <%= link_to image_tag("calculator.png", :mouseover => "calculator_large.png"), dashboard_manufacture_path %> <br /> manufacturer  
             </li>  
         </ul>  
 </div>

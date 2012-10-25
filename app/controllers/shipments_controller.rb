@@ -23,6 +23,8 @@ class ShipmentsController < ApplicationController
     case params[:name]
       when "id"
       redirect_to shipments_path(:id=>params[:id]), notice => "to shipment"
+      when "project_id"
+      redirect_to projects_path(:id=>params[:id]), notice => "to project"
       else
       return
     end

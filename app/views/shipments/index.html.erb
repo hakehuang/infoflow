@@ -7,7 +7,7 @@
     <% end  %>
   </tr>
 
-<% @attr_constrains = ["id"] %>
+<% @attr_constrains = ["id", "project_id"] %>
 <% @shipments.each do |shipment| %>
   <tr>
     <% Shipment.attribute_names.each do |name| %>

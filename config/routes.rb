@@ -1,8 +1,5 @@
 Infoflow::Application.routes.draw do
 
-
-  resources :shipments
-
   devise_for :users
 
   root :to => "home#index"
