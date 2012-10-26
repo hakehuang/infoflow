@@ -1,5 +1,6 @@
 Infoflow::Application.routes.draw do
 
+
   devise_for :users
 
   root :to => "home#index"
@@ -20,6 +21,7 @@ Infoflow::Application.routes.draw do
   match '/manufactures/add_product' => "manufactures#add_product"
   match '/manufactures/add_manufacture' => "manufactures#add_manufacture"
 
+  resources :roles
   resources :shipments
   resources :dashboard
   resources :projects

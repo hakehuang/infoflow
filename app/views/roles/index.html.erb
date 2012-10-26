@@ -1,0 +1,27 @@
+<h1>Listing roles</h1>
+
+<table id="role" class="display">
+ <thead> 
+  <tr>
+    <% Role.attribute_names.each do |name| %>
+    <th><%= name %></th>
+    <% end  %>
+    <th> t(:delate) </th>
+  </tr>
+ </thead> 
+
+ <tbody>
+<% @roles.each do |role| %>
+  <tr>
+    <% Role.attribute_names.each do |name| %>
+    <td><%= best_in_place role, name, :type => :textarea %></td>
+    <% end  %>
+    <td><%= link_to 'Destroy', role, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+ </tbody>
+<%= will_paginate @roles %>
+<br />
+
+<%= link_to 'New Role', new_role_path %>
