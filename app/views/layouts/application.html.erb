@@ -15,10 +15,11 @@ width: 400px;
 visibility: hidden;
 z-index: 100;
 }
+#menu li { float:left;}
 </style>
 <script type="text/javascript">
 /***********************************************
-* Floating Top Bar script- © Dynamic Drive (www.dynamicdrive.com)
+* Floating Top Bar script Dynamic Drive (www.dynamicdrive.com)
 * Sliding routine by Roy Whittle (http://www.javascript-fx.com/)
 * This notice must stay intact for legal use.
 * Visit http://www.dynamicdrive.com/ for full source code
@@ -51,8 +52,9 @@ if (persistclose)
 document.cookie="remainclosed=1"
 document.getElementById("topbar").style.visibility="hidden"
 }
-function staticbar(){
-	barheight=document.getElementById("topbar").offsetHeight
+function staticbar() {
+	//var barheight = document.getElementById("topbar").offsetHeight
+        var barheight = 100;
 	var ns = (navigator.appName.indexOf("Netscape") != -1) || window.opera;
 	var d = document;
 	function ml(id){
@@ -92,34 +94,6 @@ else if (window.attachEvent)
 else if (document.getElementById)
   window.onload=staticbar;
 </script>
-</head>
-<body>
-<% if user_signed_in? %>
-        <% if  @searchable  %>
-        <div id="search">
-	<%= form_tag '/search', :method => 'get' do %>
-            <div id="cata">
-           <%= select_tag 'cata', options_for_select($coptions, $cdefault),:onchange => "update_range_div(this.value)" %>
-            </div>
-           <div id="rangeDiv">
-           <%= render :partial => 'dashboard/range', :object => @options %>
-            </div>
-           <div id="title_name">
-           <!-- %= select_tag 'range',options_for_select(@options,@default) % -->
-           <%= text_field 'title','name' , :size => 15 %>
-           </div>
-           <div id="search_button">
-           <%= submit_tag t(:search) %>
-           </div>
-         <% end  %>
-        </div>
-   <p class="floatstop"> 
-      <% end %>
-
-
-<div id="dashboard">
-<%= image_tag("toggle.png", :id=>"toggle") %>
-<!--list of widgets-->
 <script type="text/javascript">
 			$(document).ready(function() {
 				//Create base variable, check document width and count how much dot per line.
@@ -156,11 +130,36 @@ else if (document.getElementById)
 				);
 			});
 </script>
+</head>
+<body>
+<% if user_signed_in? %>
+        <% if  @searchable  %>
+        <div id="search">
+	<%= form_tag '/search', :method => 'get' do %>
+            <div id="cata">
+           <%= select_tag 'cata', options_for_select($coptions, $cdefault),:onchange => "update_range_div(this.value)" %>
+            </div>
+           <div id="rangeDiv">
+           <%= render :partial => 'dashboard/range', :object => @options %>
+            </div>
+           <div id="title_name">
+           <!-- %= select_tag 'range',options_for_select(@options,@default) % -->
+           <%= text_field 'title','name' , :size => 15 %>
+           </div>
+           <div id="search_button">
+           <%= submit_tag t(:search) %>
+           </div>
+         <% end  %>
+        </div>
+   <p class="floatstop"> 
+      <% end %>
 
 
-
+<div id="dashboard">
+<%= image_tag("toggle.png", :id=>"toggle") %>
+<!--list of widgets-->
 <div id="dashboard-menu">  
-        <ul>  
+        <ul id="menu">  
             <li>  
             <%= link_to image_tag("gauge.png", :mouseover => "gauge_large.png"), dashboard_customer_path %> <br /> Customer 
             </li>  
