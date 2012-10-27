@@ -1,0 +1,28 @@
+<h1>Assign roles to user</h1>
+
+<table>
+<thead>
+<tr>
+  <th>user name</th>
+  <th>user mail</th>
+  <th>use roles</th>
+</tr>
+</thead>
+<% @users.each do |user|%>
+<tr>
+  <td><%= user.username %></td>
+  <td><%= user.email %></td>
+  <td>
+<form accept-charset="UTF-8" action="/admin_roles/update"  method="get">
+  <%= text_field 'user','id', :value => user.id, :size => 2 ,:readonly => true %>
+  <% @roles.each do |role|%>
+  <% @status = Role.find_by_id(role, :joins => :users, :conditions => {:users => {:id => user.id}})  %>
+  <%= check_box_tag role.role, 'check', ! @status.nil?  %> <%= role.role %>
+   <%  end  %> 
+ <input name="commit" type="submit" value="update" />
+</form>
+   </td>
+  <br />
+</tr>
+<% end  %>
+</table>
