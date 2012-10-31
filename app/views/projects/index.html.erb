@@ -5,6 +5,7 @@
     <% Project.attribute_names.each do |name| %>
     <th><%= name %></th>
     <% end  %>
+    <th>Production</th>
     <th>Shipments</th>
   </tr>
 
@@ -18,6 +19,10 @@
       <td><%= best_in_place project, name, :type => :date %></td>
     <% end  %>
     <% end  %>
+    <td>
+      <%= link_to "add new production", new_production_path(:project => project.id) %>
+      <%= link_to "production status", productions_path(:project => project.id) %>
+    </td>
     <td>
       <%= link_to "add new shipment", new_shipment_path(:project => project.id) %>
       <%= link_to "shipment status", shipments_path(:project => project.id) %>
