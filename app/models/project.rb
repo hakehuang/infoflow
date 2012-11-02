@@ -1,5 +1,5 @@
 class Project < ActiveRecord::Base
-  attr_accessible :inquiry_from, :start_date, :rcv_customer_sample_date
+  attr_accessible :inquiry_from, :start_date, :rcv_customer_sample_date, :status
   belongs_to :user
   belongs_to :contract
   has_many :productions

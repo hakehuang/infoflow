@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121026151036) do
+ActiveRecord::Schema.define(:version => 20121102141719) do
 
   create_table "contracts", :force => true do |t|
     t.string   "No"
@@ -111,8 +111,9 @@ ActiveRecord::Schema.define(:version => 20121026151036) do
     t.string   "inquiry_from"
     t.date     "start_date"
     t.date     "rcv_customer_sample_date"
-    t.datetime "created_at",               :null => false
-    t.datetime "updated_at",               :null => false
+    t.datetime "created_at",                                 :null => false
+    t.datetime "updated_at",                                 :null => false
+    t.boolean  "status",                   :default => true
   end
 
   create_table "roles", :force => true do |t|
