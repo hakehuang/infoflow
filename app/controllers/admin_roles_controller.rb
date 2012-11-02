@@ -12,27 +12,32 @@ end
 def update
   @user_id = params[:user][:id]
   @roles = Role.all
-  #@urelates = RolesUsers.where("user_id" + " " + "LIKE :range", :range => "%" + @user_id + "%")
+  @relates = RolesUsers.where("user_id" + " " + "LIKE :range", :range => "%" + @user_id + "%")
+  @keep = [].to_set
   @roles.each do |role|
-    @keep = [].to_set
-    @relates = RolesUsers.where("role_id" + " " + "LIKE :range", :range => "%" + role.id.to_s + "%")
-    params.keys.each do |param|
+    if params.keys.include?(role.role)
+      @find = 0
+      params.keys.each do |param|
         if params[param] == "check"
             @relates.each do |relate|
               if relate.user_id.to_s  == @user_id and relate.role_id == role.id
                 @keep.add(relate.id)
+                @find = 1
               end
             end
-            if @keep.count == 0
+            if @find == 0
                 @nrelate = RolesUsers.new
                 @nrelate.user_id = @user_id
                 @nrelate.role_id = role.id
                 @nrelate.save
             end
         end
+      end
     end
-    @relates.each do |relate|
-        relate.destroy
+  end
+  @relates.each do |relate|
+    if ! @keep.include? relate.id
+      relate.destroy
     end
   end
   @user = User.find(@user_id) 
