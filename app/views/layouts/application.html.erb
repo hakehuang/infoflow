@@ -132,6 +132,8 @@ else if (document.getElementById)
 </script>
 </head>
 <body>
+<div id="bodycenter">
+
 <% if user_signed_in? %>
         <% if  @searchable  %>
         <div id="search">
@@ -153,8 +155,11 @@ else if (document.getElementById)
         </div>
    <p class="floatstop"> 
       <% end %>
-
-
+<div id="logout">
+<%= link_to t(:logout), destroy_user_session_path , :method => :delete  %> <%= link_to t(:edit_my_profile_info), edit_user_registration_path %>
+</div>
+<br \>
+<%= yield %>
 <div id="dashboard">
 <%= image_tag("toggle.png", :id=>"toggle") %>
 <!--list of widgets-->
@@ -193,9 +198,10 @@ else if (document.getElementById)
 </div>
 
 </div> 
- 
 <% end %>
-<%= yield %>
+
+</div>
+
 <% if notice or alert  %>
 <div id="topbar">
 <a href="" onClick="closebar(); return false"><%= image_tag("close.gif") %>

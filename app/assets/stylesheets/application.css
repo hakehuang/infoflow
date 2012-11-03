@@ -35,3 +35,17 @@ float: left
 div#search_button {
 float: left
 }
+
+div#bodycenter{
+//	float:center;
+/*
+	background-image: url(/assets/bodycenter.gif);
+	background-repeat: no-repeat;
+*/
+        margin: 0 auto;
+	width: 80%;
+}
+
+div#logout{
+float: right
+}

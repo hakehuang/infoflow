@@ -1,12 +1,14 @@
 <h1>Listing shipments</h1>
 
 <table id="shipment" class="display">
+<thead>
   <tr>
     <% Shipment.attribute_names.each do |name| %>
     <th><%= name %></th>
     <% end  %>
   </tr>
-
+</thead>
+<tbody>
 <% @attr_constrains = ["id", "project_id"] %>
 <% @shipments.each do |shipment| %>
   <tr>
@@ -19,7 +21,8 @@
     <% end  %>
   </tr>
 <% end %>
+</tbody>
 </table>
 
 <br />
-
+<%= will_paginate @shipments %>

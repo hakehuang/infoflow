@@ -70,7 +70,7 @@ def customer
     @default = @options[0]
     $cdefault = "customer"
     $current_page = $enum_page[0]
-    @customers = Customer.paginate(:page => params[:page], :per_page => 30)
+    @customers = Customer.paginate(:page => params[:page], :per_page => 5)
    render 'index'
 end
 
@@ -80,7 +80,7 @@ def project
     @default = @options[1]
     $cdefault = "project"
     $current_page = $enum_page[1]
-    @projects = Project.paginate(:page => params[:page], :per_page => 30)
+    @projects = Project.paginate(:page => params[:page], :per_page => 5)
     render 'index'
 end
 
@@ -90,7 +90,7 @@ def production
     @default = @options[1]
     $cdefault = "production"
     $current_page = $enum_page[2]
-    @productions = Production.paginate(:page => params[:page], :per_page => 30)
+    @productions = Production.paginate(:page => params[:page], :per_page => 5)
     render 'index'
 end
 
@@ -100,7 +100,7 @@ def shipment
     @default = @options[1]
     $cdefault = "shipment"
     $current_page = $enum_page[3]
-    @shipments = Shipment.paginate(:page => params[:page], :per_page => 30)
+    @shipments = Shipment.paginate(:page => params[:page], :per_page => 5)
     render 'index'
 end
 
@@ -110,7 +110,7 @@ def contract
     @default = @options[1]
     $cdefault = "contract"
     $current_page = $enum_page[4]
-    @contracts = Contract.paginate(:page => params[:page], :per_page => 30)
+    @contracts = Contract.paginate(:page => params[:page], :per_page => 5)
     render 'index'
 end
 
@@ -121,7 +121,7 @@ def product
     @default = @options[1]
     $cdefault = "product"
     $current_page = $enum_page[4]
-    @products = Product.paginate(:page => params[:page], :per_page => 30)
+    @products = Product.paginate(:page => params[:page], :per_page => 5)
     render 'index'
 end
 
@@ -131,7 +131,7 @@ def manufacture
     @default = @options[1]
     $cdefault = "manufacture"
     $current_page = $enum_page[5]
-    @manufactures = Manufacture.paginate(:page => params[:page], :per_page => 30)
+    @manufactures = Manufacture.paginate(:page => params[:page], :per_page => 5)
     render 'index'
 end
 

@@ -1,12 +1,14 @@
 <h1><%= link_to "Listing productions", productions_path %></h1>
 
 <table id="production" class="display">
+ <thead> 
   <tr>
     <% Production.attribute_names.each do |name| %>
     <th><%= name %></th>
     <% end  %>
   </tr>
-
+  </thead>
+ <tbody>
 <% @productions.each do |production| %>
   <tr>
     <% Production.attribute_names.each do |name| %>
@@ -14,8 +16,10 @@
     <% end  %>
   </tr>
 <% end %>
+ </tbody>
 </table>
-
+<br />
+<%= will_paginate @productions %>
 <br />
 
 <%= link_to 'New Production', new_production_path %>

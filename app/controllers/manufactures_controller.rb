@@ -4,9 +4,9 @@ class ManufacturesController < ApplicationController
   # GET /manufactures.json
   def index
     if ! params[:product].nil?
-      @manufactures = Manufacture.find(:all, :joins => :products, :conditions => {:products => {:id => params[:product]}}).paginate(:page => params[:page], :per_page => 30) 
+      @manufactures = Manufacture.find(:all, :joins => :products, :conditions => {:products => {:id => params[:product]}}).paginate(:page => params[:page], :per_page => 5) 
     else
-      @manufactures = Manufacture.paginate(:page => params[:page], :per_page => 30)
+      @manufactures = Manufacture.paginate(:page => params[:page], :per_page => 5)
     end
     respond_to do |format|
       format.html # index.html.erb

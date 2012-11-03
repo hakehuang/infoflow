@@ -6,9 +6,9 @@ class ContractsController < ApplicationController
     @default = @options[1]
     $cdefault = $coptions[4]
     if ! params[:customer].nil?
-   @contracts = Contract.where("customer_id" + " LIKE :range", :range => "%" +  params[:customer] + "%").paginate(:page => params[:page], :per_page => 30)
+   @contracts = Contract.where("customer_id" + " LIKE :range", :range => "%" +  params[:customer] + "%").paginate(:page => params[:page], :per_page => 5)
     elsif ! params[:id].nil?
-   @contracts = Contract.where("id" + " LIKE :range", :range => "%" +  params[:id] + "%").paginate(:page => params[:page], :per_page => 30)
+   @contracts = Contract.where("id" + " LIKE :range", :range => "%" +  params[:id] + "%").paginate(:page => params[:page], :per_page => 5)
     else
     @contracts = Contract.paginate(:page => params[:page], :per_page => 30)
     end

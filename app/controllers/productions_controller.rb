@@ -6,9 +6,9 @@ class ProductionsController < ApplicationController
     @options = Production.attribute_names
     @default = @options[1]
     if ! params[:id].nil?
-      @productions = Production.where("id" +  " LIKE :range", :range => "%" +  params[:id] + "%").paginate(:page => params[:page], :per_page => 30)
+      @productions = Production.where("id" +  " LIKE :range", :range => "%" +  params[:id] + "%").paginate(:page => params[:page], :per_page => 5)
     else
-      @productions = Production.paginate(:page => params[:page], :per_page => 30)
+      @productions = Production.paginate(:page => params[:page], :per_page => 5)
     end
 
     respond_to do |format|

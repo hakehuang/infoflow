@@ -7,9 +7,9 @@ class ShipmentsController < ApplicationController
     @default = @options[1]
 
     if ! params[:id].nil?
-      @shipments = Shipment.where("id" +  " LIKE :range", :range => "%" +  params[:id] + "%").paginate(:page => params[:page], :per_page => 30)
+      @shipments = Shipment.where("id" +  " LIKE :range", :range => "%" +  params[:id] + "%").paginate(:page => params[:page], :per_page => 5)
     elsif ! params[:project].nil?
-      @shipments = Shipment.where("project_id" +  " LIKE :range", :range => "%" +  params[:project] + "%").paginate(:page => params[:page], :per_page => 30)
+      @shipments = Shipment.where("project_id" +  " LIKE :range", :range => "%" +  params[:project] + "%").paginate(:page => params[:page], :per_page => 5)
     else
     @shipments = Shipment.paginate(:page => params[:page], :per_page => 30)
     end

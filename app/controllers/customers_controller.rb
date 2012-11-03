@@ -22,9 +22,9 @@ class CustomersController < ApplicationController
     @options = Customer.attribute_names
     @default = @options[1]
     if ! params[:id].nil?
-    @customers = Customer.where("id" +  " LIKE :range", :range => "%" +  params[:id] + "%").paginate(:page => params[:page], :per_page => 30)
+    @customers = Customer.where("id" +  " LIKE :range", :range => "%" +  params[:id] + "%").paginate(:page => params[:page], :per_page => 5)
     else
-    @customers = Customer.paginate(:order => "Market ASC",:page => params[:page], :per_page => 30)
+    @customers = Customer.paginate(:order => "Market ASC",:page => params[:page], :per_page => 5)
     end
     respond_to do |format|
       format.html # index.html.erb

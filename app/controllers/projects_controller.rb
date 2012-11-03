@@ -7,9 +7,9 @@ class ProjectsController < ApplicationController
     @options = Project.attribute_names
     @default = @options[1]
     if ! params[:id].nil?
-      @projects = Project.where("id" +  " LIKE :range", :range => "%" +  params[:id] + "%").paginate(:page => params[:page], :per_page => 30)
+      @projects = Project.where("id" +  " LIKE :range", :range => "%" +  params[:id] + "%").paginate(:page => params[:page], :per_page => 5)
     else
-    @projects = Project.paginate(:page => params[:page], :per_page => 30)
+    @projects = Project.paginate(:page => params[:page], :per_page => 5)
     end
     respond_to do |format|
       format.html # index.html.erb

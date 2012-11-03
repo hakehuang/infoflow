@@ -4,5 +4,5 @@
 jQuery ->
   $('.best_in_place').best_in_place()
 jQuery ->
-  $('#contract').dataTable()
+  $('#customer').dataTable()
   bJQueryUI: true

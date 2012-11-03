@@ -1,22 +1,26 @@
 <h1><%= link_to "Listing projects", projects_path %></h1>
-
-<table id="projects" class="display">
-  <tr>
+<table id="project" class="display">
+   <thead>
+    <tr>
     <% Project.attribute_names.each do |name| %>
     <th><%= name %></th>
     <% end  %>
     <th>Production</th>
     <th>Shipments</th>
-  </tr>
-
+    </tr>
+ </thead> 
+ <tbody>
 <% @attr_constrains = ["id" ,"contract_id", "user_id"] %>
+<% @attr_special = ["status"] %>
 <% @projects.each do |project| %>
   <tr>
     <% Project.attribute_names.each do |name| %>
     <% if ( ! @attr_constrains.nil? ) and @attr_constrains.member?(name)  %>
       <td><%= link_to name, projects_sub_path_path(:name => name, :id => project.send(name))  %></td>
+    <% elsif ! @attr_special.nil? and @attr_special.member?(name) %>
+      <td><%= best_in_place  project, name,:type => :select , :collection => [[true, "On going"],[false, "Finished"]]%></td>
     <% else %>
-      <td><%= best_in_place project, name, :type => :date %></td>
+      <td><%= best_in_place project, name, :type => :date %> </td>
     <% end  %>
     <% end  %>
     <td>
@@ -29,6 +33,7 @@
     </td>
   </tr>
 <% end %>
+ </tbody>
 </table>
-
+<%= will_paginate @projects %>
 <br />
