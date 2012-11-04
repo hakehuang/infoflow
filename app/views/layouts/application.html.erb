@@ -196,10 +196,13 @@ else if (document.getElementById)
 <span class="dot"> </span><span class="dot"> </span><span class="dot"> </span><span class="dot"> </span>
 </div>
 </div>
+<% else  %>
 
-</div> 
+  <%= render :template => 'devise/sessions/new' %>
+
 <% end %>
 
+</div>
 </div>
 
 <% if notice or alert  %>
