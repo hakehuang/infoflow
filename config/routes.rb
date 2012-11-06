@@ -32,6 +32,7 @@ Infoflow::Application.routes.draw do
   resources :manufactures
   resources :products
   resources :productions
+  resources :bpm
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

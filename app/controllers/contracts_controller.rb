@@ -22,7 +22,7 @@ class ContractsController < ApplicationController
 
   if ! params[:add_product].nil?
      @product = Product.find(:all, :conditions => {:name => params[:add_product]})
-     @products = Product.find(@product, :joins => :contracts, :conditions => {:contracts => {:id => params[:contract][:id]}})
+     @products = Product.find(@product, :joins => :contracts, :conditions => {:contracts => {:id => params[:contract][:id]}}).uniq
      if @products.count > 0
       redirect_to dashboard_contract_path, :notice => "product alread add"
       return
@@ -32,9 +32,9 @@ class ContractsController < ApplicationController
      @join.contract_id = params[:contract][:id]
 
       if @join.save
-        redirect_to dashboard_contract_path, :notice => "add product ok"
+        redirect_to contracts_path(:id => params[:contract][:id]), :notice => "add product ok"
       else
-        redirect_to dashboard_contract_path, :notice => "add product fail"
+        redirect_to contracts_path(:id => params[:contract][:id]), :notice => "add product fail"
       end
     return
   end
@@ -50,7 +50,7 @@ class ContractsController < ApplicationController
     @contract.user_id = current_user.id
     respond_to do |format|
       if @contract.save
-        format.html { redirect_to dashboard_contract_path(@contract) , :notice => "create contract" }
+        format.html { redirect_to contracts_path(:id => @contract) , :notice => "create contract" }
         format.xml  { render :xml => @contract, :status => :created, :location => @contract }
       else
         @isnew = 1

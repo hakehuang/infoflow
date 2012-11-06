@@ -4,7 +4,7 @@ class ManufacturesController < ApplicationController
   # GET /manufactures.json
   def index
     if ! params[:product].nil?
-      @manufactures = Manufacture.find(:all, :joins => :products, :conditions => {:products => {:id => params[:product]}}).paginate(:page => params[:page], :per_page => 5) 
+      @manufactures = Manufacture.find(:all, :joins => :products, :conditions => {:products => {:id => params[:product]}}).uniq.paginate(:page => params[:page], :per_page => 5) 
     else
       @manufactures = Manufacture.paginate(:page => params[:page], :per_page => 5)
     end
@@ -27,7 +27,7 @@ class ManufacturesController < ApplicationController
 
   def add_manufacture
     @manufacture = Manufacture.find(:all, :conditions => {:name => params[:add_manufacture] }) 
-    @manufactures = Manufacture.find(@manufacture, :joins => :products, :conditions => {:products => {:id => params[:product][:id]}})
+    @manufactures = Manufacture.find(@manufacture, :joins => :products, :conditions => {:products => {:id => params[:product][:id]}}).uniq
     if @manufactures.count > 0
       redirect_to products_path(:id => params[:product][:id]), :notice => "manufacture for this product is alread add"
       return
@@ -47,7 +47,7 @@ class ManufacturesController < ApplicationController
 
   def add_product
     @product = Product.find(:all, :conditions => {:name => params[:add_product]})
-    @products = Product.find(@product, :joins => :manufactures, :conditions => {:manufactures => {:id => params[:manufacture][:id]}})
+    @products = Product.find(@product, :joins => :manufactures, :conditions => {:manufactures => {:id => params[:manufacture][:id]}}).uniq
     if @products.count > 0
       redirect_to dashboard_manufacture_path, :notice => "product is already add"
       return
@@ -82,7 +82,7 @@ class ManufacturesController < ApplicationController
     end
     respond_to do |format|
       if @join.save
-        format.html { redirect_to dashboard_product_path(@product) , :notice => "create product" }
+        format.html { redirect_to products_path(:id => @product.id) , :notice => "create product" }
         format.xml  { render :xml => @product, :status => :created, :location => @product }
       else
         format.html { render :action => "new" }
@@ -100,7 +100,7 @@ class ManufacturesController < ApplicationController
     
     respond_to do |format|
       if @manufacture.save
-        format.html { redirect_to dashboard_manufacture_path(@manufacture) , :notice => "create manufacture" }
+        format.html { redirect_to manufactures_path(:id => @manufacture.id) , :notice => "create manufacture" }
         format.xml  { render :xml => @manufacture, :status => :created, :location => @manufacture }
       else
         format.html { render :action => "new" }
