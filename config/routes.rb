@@ -21,7 +21,9 @@ Infoflow::Application.routes.draw do
   match '/manufactures/add_product' => "manufactures#add_product"
   match '/manufactures/add_manufacture' => "manufactures#add_manufacture"
   match "/admin_roles/update" => "admin_roles#update"
+  match "/admin_roles_view/update" => "admin_roles_view#update"
 
+  resources :admin_roles_view
   resources :admin_roles
   resources :roles
   resources :shipments

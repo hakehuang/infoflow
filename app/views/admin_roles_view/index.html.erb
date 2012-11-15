@@ -1,0 +1,25 @@
+<h1>Assign roles with view access</h1>
+
+<table>
+<tr>
+  <th>roles</th>
+  <th>view access</th>
+</tr>
+<% @roles.each do |role|%>
+<tr>
+ <td><%= role.role %></td>
+ <td>
+<!-- %= select_tag 'views[]', options_for_select(@views), {:multiple => true, :size => 5} %-->
+<form accept-charset="UTF-8" action="/admin_roles_view/update"  method="get">
+  <%= text_field 'role','id', :value => role.id, :size => 2 ,:readonly => true %>
+  <% @views.each do |view|%>
+  <% @viewlist = RolesViews.where("role_id" + " LIKE :range", :range => "%" +  role.id.to_s + "%")  %>
+  <%= check_box_tag view, 'check',  true  %> <%= view %>
+   <%  end  %> 
+ <input name="commit" type="submit" value="update" />
+</form>
+
+</td>
+</tr>
+<% end  %>
+</table>
