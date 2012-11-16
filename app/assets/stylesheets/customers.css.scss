@@ -1,6 +1,9 @@
 // Place all the styles related to the customers controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+/* 
+*= require dataTables/jquery.dataTables
+*/
 table {
 	border-width: 1px;
 	border-spacing: 2px;

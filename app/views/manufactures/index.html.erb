@@ -10,10 +10,6 @@
     <th>revision</th>
   </tr>
  </thead>
-      <% @poptions = Set.new  %>
-      <% Product.all.each do |f|  %>
-         <% @poptions.add(f.name) %>
-      <% end%>
  <tbody>
 <% @manufactures.each do |manufacture| %>
   <tr>

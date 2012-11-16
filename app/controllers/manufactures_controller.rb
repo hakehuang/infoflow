@@ -3,6 +3,10 @@ class ManufacturesController < ApplicationController
   # GET /manufactures
   # GET /manufactures.json
   def index
+   @poptions = Set.new
+   Product.all.each do |f|
+    @poptions.add(f.name)
+   end
     if ! params[:product].nil?
       @manufactures = Manufacture.find(:all, :joins => :products, :conditions => {:products => {:id => params[:product]}}).uniq.paginate(:page => params[:page], :per_page => 5) 
     else
