@@ -1,5 +1,6 @@
 <h1><%= link_to "Listing manufactures", manufactures_path %></h1>
 
+
 <table id="manufacture" class="display">
  <thead>
   <tr>
@@ -8,6 +9,7 @@
     <% end  %>
     <th>Products</th>
     <th>revision</th>
+    <th>Total products</th>
   </tr>
  </thead>
  <tbody>
@@ -30,7 +32,7 @@
     <% end %>
     </td>
     <td><%= manufacture.versions.length  %></td>
-    <%= manufacture.products.count %>
+    <td ><%= manufacture.products.count %></td>
   </tr>
 <% end %>
 </tbody>
