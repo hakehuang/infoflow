@@ -1,10 +1,13 @@
 <h1>Assign roles with view access</h1>
 
-<table>
+<table id="roles_view" class="display">
+<thead>
 <tr>
   <th>roles</th>
   <th>view access</th>
 </tr>
+</thead>
+<tbody>
 <% @roles.each do |role|%>
 <tr>
  <td><%= role.role %></td>
@@ -13,13 +16,24 @@
 <form accept-charset="UTF-8" action="/admin_roles_view/update"  method="get">
   <%= text_field 'role','id', :value => role.id, :size => 2 ,:readonly => true %>
   <% @views.each do |view|%>
+  <% @find = false  %>
   <% @viewlist = RolesViews.where("role_id" + " LIKE :range", :range => "%" +  role.id.to_s + "%")  %>
-  <%= check_box_tag view, 'check',  true  %> <%= view %>
+  <% @viewlist.each do |list| %>
+    <% if list.viewname == view  %>
+        <% @find = true  %>
+    <% end  %>
+  <% end  %>
+  <% if @find  %>
+  <input checked="checked" id=<%= role.role %> name=<%= view%> type="checkbox" value="check" /> <%= view %>
+   <% else  %>
+  <input id=<%= role.role %> name=<%= view%> type="checkbox" value="check" /> <%= view %>
+  <% end  %>
+  <!-- %= check_box_tag view.to_s, 'check', @find %--> 
    <%  end  %> 
  <input name="commit" type="submit" value="update" />
 </form>
-
 </td>
 </tr>
 <% end  %>
+</tbody>
 </table>
