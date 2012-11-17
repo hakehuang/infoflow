@@ -159,6 +159,12 @@ else if (document.getElementById)
 <%= link_to t(:logout), destroy_user_session_path , :method => :delete  %> <%= link_to t(:edit_my_profile_info), edit_user_registration_path %>
 </div>
 <br \>
+<div id="floatleft">
+<%= link_to image_tag("VitaiMed.gif"), root_path%> 
+</div>
+
+<H1><font color="blue"><%= t(:company) %></font></H1>
+<br />
 <%= yield %>
 <div id="dashboard">
 <%= image_tag("toggle.png", :id=>"toggle") %>

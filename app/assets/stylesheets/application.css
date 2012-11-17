@@ -35,8 +35,12 @@ div#search_button {
 float: left
 }
 
+div#floatleft{
+  float:left
+}
+
 div#bodycenter{
-//	float:center;
+	float:center;
 /*
 	background-image: url(/assets/bodycenter.gif);
 	background-repeat: no-repeat;
