@@ -1,4 +1,5 @@
 class ProductionsController < ApplicationController
+before_filter :AccessView?
   # GET /productions
   # GET /productions.json
   def index

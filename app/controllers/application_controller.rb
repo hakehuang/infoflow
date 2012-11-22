@@ -6,6 +6,30 @@ class ApplicationController < ActionController::Base
   def after_sign_in_path_for(resource)
 	dashboard_index_path
   end
+  
+ def AccessView?(view)
+    @view = view
+    @match = false
+    @rolesofuser = RolesUsers.where("user_id = ?", current_user.id)
+    @rolesofview = RolesViews.where("viewname" + " " + "LIKE :range", :range => "%" + view + "%")
+    @rolesofuser.each do |ru|
+      @rolesofview.each do |rv|
+        if ru.role_id == rv.role_id
+          @match = true
+          break
+        end
+        if @match
+          break
+        end
+      end
+    end    
+
+    @condition = :authenticate_user! && @match 
+    if ! @condition
+      redirect_to new_user_registration_path, :notice => "no access" 
+      return
+    end
+ end
 
   # Overwriting the sign_out redirect path method
   def after_sign_out_path_for(resource_or_scope)

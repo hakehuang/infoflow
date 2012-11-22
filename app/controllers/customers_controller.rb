@@ -1,4 +1,7 @@
 class CustomersController < ApplicationController
+before_filter do |c| 
+c.send(:AccessView?,$coptions[0])
+end
 
  def show
     if params[:id].nil?
@@ -87,9 +90,5 @@ class CustomersController < ApplicationController
       end
     end
   end
-
- def sort
-
- end
 
 end
