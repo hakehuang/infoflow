@@ -4,5 +4,5 @@
 jQuery ->
   $('.best_in_place').best_in_place()
 jQuery ->
-  $('#manufacture').dataTable()
+  $('#manufacture').dataTable("sScrollX": "50%","bScrollCollapse": true)
   bJQueryUI: true

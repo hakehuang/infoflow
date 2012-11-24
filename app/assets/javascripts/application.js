@@ -17,6 +17,7 @@
 //= require jquery-ui
 //= require jquery.purr
 //= require best_in_place
+//= require dataTables/extras/Scroller
 
 function update_range_div(cata) {
   jQuery.ajax({
