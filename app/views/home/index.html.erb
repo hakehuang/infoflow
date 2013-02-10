@@ -5,11 +5,30 @@
   </head>
   <body>
   <% if ! user_signed_in? %>
+<div class="top">
+ <p>I am top</p>
+ </div>
+
+ <div style="clear:both;"></div>
+ 
+ <div class="left">
+ <p> I am left</p>
+ </div>
+ 
+
+ <div class="right">
   <%= render :template => 'devise/sessions/new' %>
+ </div>
+
+ <div style="clear:both;"></div>
+   
+ <div class="bottom">
+ <p> I am bottom</p>
+ </div>
+
   <% else  %>
     <%= link_to t(:logout), destroy_user_session_path , :method => :delete  %> <br />
     <%= link_to t(:edit_my_profile_info), edit_user_registration_path %>
-  <% end %>
 
  <div class="top">
  <p>I am top</p>
@@ -31,5 +50,6 @@
  <div class="bottom">
  <p> I am bottom</p>
  </div>
+  <% end %>
   </body>
 </html>
