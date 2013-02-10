@@ -2,6 +2,24 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+ul, ol {
+list-style-type: none;
+float:left;
+display:inline;
+position:relative;
+right: -30%
+}
+
+li {
+float:left;
+display:block;
+border:1px 
+solid #711515;
+margin:20px;
+padding:5px 5px 5px 8px;
+text-decoration:none;
+}
+
 .top {
 min-height:50px;
 width: 100%;
@@ -10,6 +28,13 @@ border: 1px ;
 solid : #666;
 background: #cfcfcf;
 bordercolor: #000;
+}
+
+.tcontent {
+margin-left:auto;
+margin-right:auto;
+text-align:center;
+overflow: hidden;
 }
 
 .left {

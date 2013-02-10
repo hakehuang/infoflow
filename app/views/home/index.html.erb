@@ -5,14 +5,21 @@
   </head>
   <body>
   <% if ! user_signed_in? %>
-<div class="top">
- <p>I am top</p>
+ <div class="top">
+  <div class="tcontent">
+  <ul>
+ <li><%= image_tag("mail.png",  :size => "50x19" )%></li>
+  <li><%= t(:public)  %></li>
+  <li><%= t(:private)  %></li>
+  <li><%= t(:saveme)  %></li>
+  </ul>
+  </div>
  </div>
 
  <div style="clear:both;"></div>
  
  <div class="left">
- <p> I am left</p>
+ <p>I am left</p>
  </div>
  
 
@@ -31,7 +38,11 @@
     <%= link_to t(:edit_my_profile_info), edit_user_registration_path %>
 
  <div class="top">
- <p>I am top</p>
+<li><%= image_tag("mail.png")%></li>
+ <li><%= t(:public)  %> </li>
+ <li><%= t(:private)  %> </li>
+ <li><%= user.name  %> </li>
+ <li><%= t(:saveme)  %> </li>
  </div>
 
  <div style="clear:both;"></div>
