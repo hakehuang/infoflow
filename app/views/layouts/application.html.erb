@@ -13,7 +13,42 @@
 
 </head>
 <body>
+ <div class="top">
+  <div class="tcontent">
+  <ul>
+ <li><%= image_tag("mail.png",  :size => "50x19" )%></li>
+  <li><%= t(:public)  %></li>
+  <li><%= t(:private)  %></li>
+<% if user_signed_in? %>
+  <li>
+   <%= current_user.email  %>
+  </li>
+  <li>
+    <%= link_to t(:logout), destroy_user_session_path , :method => :delete  %> <br />
+    <%= link_to t(:edit_my_profile_info), edit_user_registration_path %>
+   </li>
+<% end  %>
+  <li><%= t(:saveme)  %></li>
+  </ul>
+  </div>
+ </div>
+
 <p class="floatstop"></p>
 <%= yield %>
+<div style="clear:both;"></div>
+   
+ <div class="bottom">
+  <div class="tcontent">
+  <ul>
+  <li><%= t(:friend_links)  %></li>
+  <li><%= t(:site_map)  %></li>
+  <li><%= t(:contact_us)  %></li>
+  <br />
+  <li></li>
+  <li>t(:ipc)</li>
+  <li></li>
+  </ul>
+  </div>
+
 </body>
 </html>

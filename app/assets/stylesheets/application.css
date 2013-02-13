@@ -12,3 +12,21 @@
  *= require_tree .
 */
 
+.left {
+min-height:50px;
+width: 49%;
+height: 600px;
+float: left;
+background: #cfcfcf;
+bordercolor: #000;
+}
+
+.right {
+width: 50%;
+height: 600px;
+float: right;
+background: #cfcfcf;
+bordercolor: #000;
+}
+
+

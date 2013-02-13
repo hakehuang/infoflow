@@ -4,63 +4,13 @@
     <title>info control</title>
   </head>
   <body>
-  <% if ! user_signed_in? %>
- <div class="top">
-  <div class="tcontent">
-  <ul>
- <li><%= image_tag("mail.png",  :size => "50x19" )%></li>
-  <li><%= t(:public)  %></li>
-  <li><%= t(:private)  %></li>
-  <li><%= t(:saveme)  %></li>
-  </ul>
-  </div>
- </div>
-
- <div style="clear:both;"></div>
- 
  <div class="left">
  <p>I am left</p>
  </div>
- 
 
  <div class="right">
   <%= render :template => 'devise/sessions/new' %>
+  <%= link_to t(:sign_up), new_user_registration_path  %>
  </div>
-
- <div style="clear:both;"></div>
-   
- <div class="bottom">
- <p> I am bottom</p>
- </div>
-
-  <% else  %>
-    <%= link_to t(:logout), destroy_user_session_path , :method => :delete  %> <br />
-    <%= link_to t(:edit_my_profile_info), edit_user_registration_path %>
-
- <div class="top">
-<li><%= image_tag("mail.png")%></li>
- <li><%= t(:public)  %> </li>
- <li><%= t(:private)  %> </li>
- <li><%= user.name  %> </li>
- <li><%= t(:saveme)  %> </li>
- </div>
-
- <div style="clear:both;"></div>
- 
- <div class="left">
- <p> I am left</p>
- </div>
- 
-
- <div class="right">
- <p> I am right</p>
- </div>
-
- <div style="clear:both;"></div>
-   
- <div class="bottom">
- <p> I am bottom</p>
- </div>
-  <% end %>
   </body>
 </html>
