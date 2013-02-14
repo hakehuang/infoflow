@@ -1,4 +1,6 @@
 Infoflow::Application.routes.draw do
+  resources :sites
+
   devise_for :users
 
   root :to => "home#index"

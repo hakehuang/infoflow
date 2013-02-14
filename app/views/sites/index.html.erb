@@ -1,0 +1,16 @@
+
+<% @sites.each do |site| %>
+<div class="sep">
+  <tr class="str">
+    <td><%= link_to(site.name, "http://" + site.link) %></td>
+    <td><%= site.desc %></td>
+    <td><%= site.icons %></td>
+    <td><%= link_to t(:details), site %></td>
+  </tr>
+</div>
+<% end %>
+
+<p class="floatstop"></p>
+<br />
+
+<%= link_to 'New Site', new_site_path %>
