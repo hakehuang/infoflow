@@ -1,0 +1,39 @@
+<div class="dleft">
+ <p>I am left</p>
+</div>
+
+<div class="dcenter">
+
+<div class="dcenterup">
+ <ul class="dul">
+ <li class="dli"><%= t(:hot)  %></li>
+ <li class="dli"><%= t(:good)  %></li>
+ <li class="dli"><%= t(:update)  %></li>
+ <li class="dli"><%= t(:luckme)  %></li>
+ <li>      
+ <%= form_tag '/', :method => 'get' do %>
+   <%= text_field 'title','name' , :size => 5, :placeholder => "search" %>
+   <%= submit_tag t(:search) %>
+  <% end  %> 
+ </li>
+ </ul>
+</div>
+
+<div class="dcenterdown">
+ <p>I am center down</p>
+</div>
+
+</div>
+
+
+<div class="dright">
+
+ <div class="drightup">
+ <p>I am right up</p>
+ </div>
+
+ <div class="drightdown">
+ <p>I am right down</p>
+ </div>
+
+</div>

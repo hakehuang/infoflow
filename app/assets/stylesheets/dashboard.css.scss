@@ -1,3 +1,92 @@
 // Place all the styles related to the dashboard controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.dleft {
+min-height:50px;
+width: 30%;
+height: 600px;
+float: left;
+background: #cfcfcf;
+bordercolor: #000;
+border:5px solid white;
+}
+
+.dcenter {
+width: 45%;
+height: 600px;
+float: left;
+background: #cfcfcf;
+bordercolor: #000;
+border:5px solid white;
+}
+
+.dcenterup {
+width: 100%;
+height: 80px;
+float: left;
+background: #cfcfcf;
+bordercolor: #000;
+border:5px solid white;
+}
+
+.dcenterdown {
+width: 100%;
+height: 500px;
+float: left;
+background: #cfcfcf;
+bordercolor: #000;
+border:5px solid white;
+}
+
+
+.dright {
+width: 22%;
+height: 600px;
+float: right;
+background: #cfcfcf;
+bordercolor: #000;
+border:5px solid white;
+}
+
+.drightup {
+width: 100%;
+height: 200px;
+float: right;
+background: #cfcfcf;
+bordercolor: #000;
+}
+
+.drightdown {
+width: 100%;
+height: 400px;
+float: right;
+background: #cfcfcf;
+bordercolor: #000;
+}
+
+.dul {
+list-style-type: none;
+float:left;
+display:inline;
+position:relative;
+right: 0%;
+margin-left:0em; 
+padding-left:0em; 
+margin-bottom:1em; 
+}
+
+
+.dli {
+float:left;
+display: inline-block;
+width: 20px;
+height: 26px;
+border: none;
+text-decoration:none;
+font-size: 16px;
+padding-left:0em;
+padding: 0px 0px 0px 0px;
+}
+
+
+
