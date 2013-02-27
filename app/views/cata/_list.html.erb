@@ -1,0 +1,20 @@
+
+<div id="cata">
+
+<% if @pcata.nil?  %>
+<% @catas.each do |cata|  %>
+<% if cata.catamaps.all.count == 0 %>
+<ul><li>
+<%= link_to cata.tname, catas_list_path(:pp => cata_id), :remote => true) %>
+</li></ul>
+<% end  %>
+<% end  %>
+
+<% else  %>
+
+<% @catamaps.each do |catamap|  %>
+<ul><li>
+<%= link_to Cata.find(catamap.cata_id).tname, catas_list_path(:pp => cata_id), :remote => true) %>
+</li></ul>
+<% end  %>
+</div>

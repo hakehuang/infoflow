@@ -1,0 +1,2 @@
+module CataHelper
+end
