@@ -1,7 +1,12 @@
 class CataController < ApplicationController
- def index
+  
+def index
     @catas = Cata.all
-  end
+    respond_to do |format|
+      format.html # index.html.erb
+      format.xml  
+   end
+end
   
   def show
     @cata = Cata.find(params[:id])
@@ -9,6 +14,10 @@ class CataController < ApplicationController
   
   def new
     @cata = Cata.new
+    respond_to do |format|
+      format.html # new.html.erb
+      format.xml  { render :xml => @cata }
+    end
   end
   
   def create

@@ -3,8 +3,9 @@ Infoflow::Application.routes.draw do
 
   devise_for :users
 
+  match '/cata/list' => 'cata#list'
+  match '/cata/index' => 'cata#index'
   root :to => "home#index"
-  match '/catas/list' => 'catas#list'
   resources :dashboard
   resources :cata
   resource  :catamap
