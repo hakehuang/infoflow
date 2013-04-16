@@ -1,17 +1,14 @@
 
 <div id="cata">
 
-<%= link_to "New cata" ,new_catum_path %>
+<%= link_to "New cata" ,new_cata_path %>
 
 <% if @pcata.nil?  %>
 <% @catas.each do |cata|  %>
-<% if cata.catamaps.all.count == 0 %>
 <ul><li>
-<%= link_to cata.tname, catas_list_path(:pp => cata_id), :remote => true %>
+<%= link_to cata.tname, cata_path(:pp => cata.id), :remote => true %>
 </li></ul>
 <% end  %>
-<% end  %>
-
 <% else  %>
 
 <% @catamaps.each do |catamap|  %>

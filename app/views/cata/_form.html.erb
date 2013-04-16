@@ -1,9 +1,8 @@
 <div class="dcenter">
-<%= form_for(@cata) do |f| %>
-
+<%= form_for @cata , :url => { :action => "create" }  do |f| %>
 <%= f.label t(:name) %>
 <%= f.text_field :name %>
-
+<%= f.submit t(:ceate) %>
 <% end  %>
 
 </div>

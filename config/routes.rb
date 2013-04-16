@@ -3,11 +3,11 @@ Infoflow::Application.routes.draw do
 
   devise_for :users
 
-  match '/cata/list' => 'cata#list'
-  match '/cata/index' => 'cata#index'
+  #match '/cata/list' => 'cata#list'
+  #match '/cata/index' => 'cata#index'
   root :to => "home#index"
   resources :dashboard
-  resources :cata
+  resource :cata
   resource  :catamap
   # The priority is based upon order of creation:
   # first created -> highest priority.
