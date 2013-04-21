@@ -49,41 +49,45 @@
           <div class="container-fluid nav-collapse">
             <ul class="nav">
               <li><%= image_tag("mail.png",  :size => "50x19" )%></li>
-              <li><%= t(:public)  %></li>
-              <li><%= t(:private)  %></li>
+              <li><%= link_to t(:public) , root_path %></li>
+              <li><%= link_to t(:private), root_path  %></li>
               <% if user_signed_in? %>
-              <li><%= current_user.email  %></li>
+              <li><%= mail_to current_user.email, "email me", :encode => "javascript" %></li>
               <li><%= link_to t(:logout), destroy_user_session_path , :method => :delete  %> </li>
               <li><%= link_to t(:edit_my_profile_info), edit_user_registration_path %>
               </li>
               <% end  %>
-              <li><%= t(:saveme)  %></li>
+              <li><%= link_to t(:saveme), root_path  %></li>
             </ul>
           </div><!--/.nav-collapse -->
         </div>
       </div>
     </div>
-
+    
     <div class="container-fluid">
+<div class="row-fluid"> 
+ <div class="span12">
       <div class="row-fluid">
         <div class="span3">
-          <div class="well sidebar-nav">
-            <ul class="nav nav-list">
-              <li class="nav-header">New cata</li>
+            <ul class="nav nav-pills nav-stacked">
+              <!-- li class="nav-header">New cata</li -->
               <%= render :template => 'cata/index'  %> 
             </ul>
-          </div><!--/.well -->
         </div><!--/span-->
+<div class="row-fluid">
         <div class="span9">
           <%= bootstrap_flash %>
           <%= yield %>
         </div>
+</div>
       </div><!--/row-->
 
       <footer>
         <p>&copy; Company 2013</p>
       </footer>
 
+ </div>
+</div>
     </div> <!-- /container -->
 
     <!-- Javascripts

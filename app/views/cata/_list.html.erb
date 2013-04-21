@@ -1,20 +1,19 @@
 
-<div id="cata">
 
+<li>
 <%= link_to "New cata" ,new_cata_path %>
-
+</li>
 <% if @pcata.nil?  %>
 <% @catas.each do |cata|  %>
-<ul><li>
+<li>
 <%= link_to cata.tname, cata_path(:pp => cata.id), :remote => true %>
-</li></ul>
+</li>
 <% end  %>
 <% else  %>
 
 <% @catamaps.each do |catamap|  %>
-<ul><li>
+<li>
 <%= link_to Cata.find(catamap.cata_id).tname, catas_list_path(:pp => cata_id), :remote => true %>
-</li></ul>
+</li>
 <% end  %>
 <% end  %>
-</div>
