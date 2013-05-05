@@ -7,7 +7,7 @@ Infoflow::Application.routes.draw do
   #match '/cata/index' => 'cata#index'
   root :to => "home#index"
   resources :dashboard
-  resource :cata
+  resources :cata
   resource  :catamap
   # The priority is based upon order of creation:
   # first created -> highest priority.

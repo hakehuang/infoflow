@@ -31,7 +31,17 @@ end
       render :action => 'new'
     end
   end
- 
+
+   def destroy
+    @cata = Cata.find(params[:id])
+    @cata.destroy
+
+    respond_to do |format|
+      format.html { redirect_to(dashboard_url) }
+      format.xml  { head :ok }
+    end
+  end
+
   def list
     @pcata = params[:pp]
     @catamaps = Catamap.where("parent_id = :id", :id => @pcata)
