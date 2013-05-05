@@ -1,0 +1,2 @@
+module BookmarksImportHelper
+end

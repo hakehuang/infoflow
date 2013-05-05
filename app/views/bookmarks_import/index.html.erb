@@ -1,0 +1,10 @@
+<% @browsers = ['IE', 'Firefox', 'Chrome', 'Opera'] %>
+
+<h1>Import Your Bookmarks</h1>
+<%= form_tag('BookmarksImport/import', :multipart => true) do %>
+  <p><label for="select_browser_type">Select the browser type of your bookmark file:</label> </p>
+  <p><%= select_tag 'browsers', options_for_select(@browsers) %></p>
+  <p><label for="upload_file">Select the bookmark file:</label> </p>
+  <p><%= file_field 'upload', 'bookmark_file' %></p>
+  <%= submit_tag 'Import' %>
+<% end %>
