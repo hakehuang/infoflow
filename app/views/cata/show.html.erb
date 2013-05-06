@@ -1,0 +1,18 @@
+<table class="table table-hover">
+ <thead> 
+  <tr>
+    <% Cata.attribute_names.each do |name| %>
+    <th><%= name %></th>
+    <% end  %>
+  </tr>
+  </thead>
+ <tbody>
+  <tr>
+   <% Cata.attribute_names.each do |name|  %>
+   <td>
+    <%= best_in_palce @cata, name, :type => :textarea %>
+   </td>
+    <% end  %>
+   </tr>
+ </tbody>
+</table>
