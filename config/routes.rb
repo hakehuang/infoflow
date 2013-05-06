@@ -3,12 +3,18 @@ Infoflow::Application.routes.draw do
 
   devise_for :users
 
+  match '/BookmarksImport' => 'BookmarksImport#index'
+  match '/BookmarksImport/import' => 'BookmarksImport#import', :via => :post
+  #match '/BookmarksImport/import' => 'BookmarksImport#import', :via => :get
+
   #match '/cata/list' => 'cata#list'
   #match '/cata/index' => 'cata#index'
   root :to => "home#index"
   resources :dashboard
   resource :cata
   resource  :catamap
+
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
