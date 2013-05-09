@@ -10,7 +10,7 @@ class BookmarksImportController < ApplicationController
       # nothing
     else
       @filename = file.original_filename
-      File.open("public/bookmark_files/#{@filename}", "w") { |f| f.write(file.read) }
+      File.open(Rails.root.to_s + "/public/bookmark_files/#{@filename}", "wb") { |f| f.write(file.read) }
     end
   end
 
