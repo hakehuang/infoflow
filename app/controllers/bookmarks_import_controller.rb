@@ -7,10 +7,12 @@ class BookmarksImportController < ApplicationController
     file = params[:upload][:bookmark_file]
 
     if file.original_filename.empty?
-      # nothing
+      return nil
     else
-      @filename = file.original_filename
-      File.open(Rails.root.to_s + "/public/bookmark_files/#{@filename}", "wb") { |f| f.write(file.read) }
+      @filename = current_user.id.to_s + file.original_filename 
+      @filename = Rails.root.to_s + "/public/bookmark_files/#{@filename}"
+      File.open(@filename, "wb") { |f| f.write(file.read) }
+      return @filename
     end
   end
 
@@ -20,14 +22,19 @@ class BookmarksImportController < ApplicationController
     readable_browser_types = ['IE', 'Firefox', 'Chrome', 'Opera']
     browser_type = params[:browsers]
 
-    if readable_browser_types.include?(browser_type)
-      # nothing but go on
-    else
+    if ! readable_browser_types.include?(browser_type)
       flash[:notice] = "Please specify your browser in the selection."
       return
     end
 
-    self.upload
+    @mbm = Bookmark.new
+    result = @mbm.parsers(browser_type, self.upload )
+    if result
+      flash[:notice] = "Your bookmarks have been successfully imported."
+    else
+
+      flash[:notice] = "Your bookmarks upload failed."
+    end
 
     # TODO: call the relevant parser to parse the uploaded file
     # ...

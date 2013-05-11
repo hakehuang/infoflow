@@ -11,6 +11,8 @@ gem "twitter-bootstrap-rails"
 
 gem 'devise'
 
+gem 'nokogiri', '1.5.9'
+
 gem 'rake'
 
 gem 'sqlite3'

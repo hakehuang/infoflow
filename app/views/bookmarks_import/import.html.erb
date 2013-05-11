@@ -1,0 +1,31 @@
+<table class="table table-condensed">
+  <caption><%= current_user.email %></caption>
+  <thead>
+    <tr> 
+      <th>
+        link name
+      </th>
+      <th>
+        link
+      </th>
+      <th>
+        tags
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+   <% @mbm.bm_hash.each do |key,value| %>
+    <tr>
+      <td> 
+      <%=  key  %>
+      </td>
+      <td>
+      <%= value[0] %>
+      </td>
+      <td>
+      <%= value[1] %>
+      </td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
