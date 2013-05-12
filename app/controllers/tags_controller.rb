@@ -10,6 +10,8 @@ end
 
 def new
   @tag = Tag.new
+  @tag.user_id = current_user.id
+  @tag.publish = false
   if @tag.save
     flash[:notice] = "new tag created"
     redirect_to tags_path
@@ -34,6 +36,8 @@ end
 
 def create
   @tag = Tag.new(params[:tag])
+  @tag.user_id = current_user.id
+  @tag.publish = false
   if @tag.save
     flash[:notice] = "new tag created"
     reirect_to tags_path
