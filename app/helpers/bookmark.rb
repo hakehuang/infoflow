@@ -1,4 +1,3 @@
-#!/home/ubuntu/.rvm/rubies/ruby-1.9.2-p318/bin/ruby
 
 require 'rubygems'
 require 'nokogiri'
@@ -34,7 +33,7 @@ end
 end
 
 class  Bookmark < Parser
-attr_accessor  :name, :link, :date_created, :tags, :icon, :rating, :comment, :ie_hash,:tag
+attr_accessor  :name, :link, :date_created, :tags, :icon, :rating, :comment, :bm_hash,:tag
 
 def do_ie_folder(item, links)
 	if item.attributes.has_key?("folded")
@@ -50,10 +49,36 @@ end
 
 def ie_parser(infile)
   @doc = Nokogiri::HTML(File::open(infile),nil,"UTF-8")
-  @ie_hash = Hash.new()
+  @bm_hash = Hash.new()
   #puts @doc.css("title").text
   @doc.css('dl').each do |con|	
-	do_ie_folder(con,@ie_hash)
+	do_ie_folder(con,@bm_hash)
+  end
+end
+
+def firefox_parser(infile)
+
+end
+
+def chrome_parser(infile)
+
+end
+
+def opera_parser(infile)
+
+end
+
+def parsers(type, file)
+  case type
+  when "IE"
+    ie_parser(file)
+  when "Firefox"
+    filefox_parser(file)
+  when "Chrome"
+    chrome_parser(file)
+  when "Opera"
+    opera_parser(file)
+  else
   end
 
 end
@@ -69,5 +94,5 @@ end
 
 #myparser = Bookmark.new()
 #myparser.ie_parser(ARGV[0])
-#myparser.ie_hash.each do |key,value|
+#myparser.bm_hash.each do |key,value|
 #puts "#{key} => #{value}" 

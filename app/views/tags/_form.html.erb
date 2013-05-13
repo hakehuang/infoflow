@@ -1,0 +1,21 @@
+
+<table class="table">
+<thead>
+  <tr>
+    <th> Name </th>
+  </tr>
+</thead>
+<tbody>
+<% @tags.each do |tag| %>
+<tr>
+  <td> 
+<%= best_in_place tag, :name, :type => :textarea %>
+  </td>
+  <td><%= link_to 'Destroy', tag, confirm: 'Are you sure?', method: :delete %></td>
+</tr>
+<% end %>
+</tbody>
+<%= will_paginate @tags%>
+<br />
+</table>
+<%= link_to 'New tag', new_tag_path %>
