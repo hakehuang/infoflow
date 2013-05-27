@@ -20,6 +20,25 @@
   <%= @site.icons %>
 </p>
 
+<p>
+<% @site.tags.each do |tag| %>
+  <p>
+    <b>name:</b>
+    <%= tag.name %>
+  </p>
+<% end %>
+</p>
+
+<h2>Add tags:</h2>
+<%= form_for([@site, @site.tags.build]) do |f| %>
+  <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
 
 <%= link_to 'Edit', edit_site_path(@site) %> |
 <%= link_to 'Back', sites_path %>

@@ -8,8 +8,8 @@ class User < ActiveRecord::Base
   # Virtual attribute for authenticating by either username or email
   # This is in addition to a real persisted field like 'username'
   attr_accessor :login
-  has_many :tags
   has_many :sites
+  has_many :tags
   # Setup accessible (or protected) attributes for your model
   attr_accessible :username ,:email, :password, :password_confirmation, :remember_me
   # attr_accessible :title, :body

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130512150611) do
+ActiveRecord::Schema.define(:version => 20130520150506) do
 
   create_table "cata", :force => true do |t|
     t.string   "name"
@@ -38,11 +38,19 @@ ActiveRecord::Schema.define(:version => 20130512150611) do
 
   add_index "sites", ["link"], :name => "index_sites_on_link", :unique => true
 
+  create_table "sitetagmaps", :force => true do |t|
+    t.integer  "site_id"
+    t.integer  "tag_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
   create_table "tags", :force => true do |t|
     t.string   "name"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
-    t.string   "user_id"
+    t.integer  "site_id"
+    t.integer  "user_id"
     t.boolean  "publish"
   end
 

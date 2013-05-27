@@ -1,7 +1,10 @@
 Infoflow::Application.routes.draw do
-  resources :sites
 
-  devise_for :users
+  devise_for :users do
+    resources :sites do
+      resources :tags
+    end
+  end
 
   match '/BookmarksImport' => 'BookmarksImport#index'
   match '/BookmarksImport/import' => 'BookmarksImport#import', :via => :post
@@ -13,7 +16,7 @@ Infoflow::Application.routes.draw do
   resources :dashboard
   resources :cata
   resource  :catamap
-  resources :tags
+
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

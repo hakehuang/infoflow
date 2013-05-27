@@ -6,14 +6,12 @@
  <li class="dli"><%= t(:good)  %></li>
  <li class="dli"><%= t(:update)  %></li>
  <li class="dli"><%= t(:luckme)  %></li>
- <li class="dli_form">      
+ </ul>
+</div>
  <%= form_tag '/', :method => 'get' do %>
    <%= text_field 'title','name' , :size => 5, :placeholder => "search" %>
    <%= submit_tag t(:search), :class => "submit_button" %>
   <% end  %> 
- </li>
- </ul>
-</div>
 
 <div class="dcenterdown">
 <%= render :template => 'sites/index' %> 

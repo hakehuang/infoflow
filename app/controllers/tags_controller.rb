@@ -36,11 +36,11 @@ end
 
 def create
   @tag = Tag.new(params[:tag])
-  @tag.user_id = current_user.id
   @tag.publish = false
+  @tag.user_id = current_user.id
   if @tag.save
     flash[:notice] = "new tag created"
-    reirect_to tags_path
+    redirect_to sites_path
   else
     flash[:error] = "new tag creatation failed"
     render :action => 'new'
