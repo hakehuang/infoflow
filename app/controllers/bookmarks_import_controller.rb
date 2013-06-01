@@ -36,13 +36,25 @@ class BookmarksImportController < ApplicationController
       flash[:notice] = "Your bookmarks upload failed."
     end
 
-    # TODO: call the relevant parser to parse the uploaded file
-    # ...
 
     # If the file parsing succeeds, the bookmarks shall have been saved in DB,
     # Then display success message;
     # Else display error information and remove the file.
-    # ...
+    
+    @mbm.bm_hash.each do |key, value|
+      @site = Site.new()
+      @site.name = key
+      @site.desc = key
+      @site.link = value[0]
+      @site.save
+      value[1].each do |tg|
+        @tag = @site.tags.create()
+        @tag.publish = false
+        @tag.user_id = current_user.id
+        @tag.name = tg
+        @tag.save 
+      end
+    end 
 
     # ...
     flash[:notice] = "Your bookmarks have been successfully imported."
