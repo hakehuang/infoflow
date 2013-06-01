@@ -21,11 +21,9 @@
 </p>
 
 <p>
+    <b>Tags:</b>
 <% @site.tags.each do |tag| %>
-  <p>
-    <b>name:</b>
-    <%= tag.name %>
-  </p>
+   <%= button_to tag.name,{ :controller  => :sites, :action =>  :remove_tag, :id => @site.id, :tag_id => tag.id} ,{ :class => 'btn btn-info btn-mini' ,:confirm => 'Are you sure?'}  %>
 <% end %>
 </p>
 

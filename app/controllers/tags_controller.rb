@@ -35,7 +35,12 @@ def update
 end
 
 def create
-  @tag = Tag.new(params[:tag])
+  if params[:site_id].nil?
+    @tag = Tag.new(params[:tag])
+  else
+   @site = Site.find(params[:site_id])
+   @tag = @site.tags.create(params[:tag])
+  end
   @tag.publish = false
   @tag.user_id = current_user.id
   if @tag.save

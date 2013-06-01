@@ -13,7 +13,7 @@ class SitesController < ApplicationController
   # GET /sites/1.json
   def show
     @site = Site.find(params[:id])
-
+    
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @site }
@@ -66,6 +66,14 @@ class SitesController < ApplicationController
         format.json { render json: @site.errors, status: :unprocessable_entity }
       end
     end
+  end
+ 
+  def remove_tag
+    @site = Site.find(params[:id])
+    @tag = @site.tags.find(params[:tag_id])
+    name = @tag.name
+    @tag.delete
+    redirect_to @site, notice: 'remove tag #{name}'
   end
 
   # DELETE /sites/1
