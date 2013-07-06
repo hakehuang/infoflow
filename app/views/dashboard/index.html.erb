@@ -8,12 +8,12 @@
  <li class="dli"><%= t(:luckme)  %></li>
  </ul>
 </div>
- <%= form_tag '/', :method => 'get' do %>
-   <%= text_field 'title','name' , :size => 5, :placeholder => "search" %>
+ <%= form_tag 'sites_search', :method => 'get', :remote => true do %>
+   <%= text_field_tag :search, params[:search] %>
    <%= submit_tag t(:search), :class => "submit_button" %>
   <% end  %> 
 
-<div class="dcenterdown">
+<div class="dcenterdown" id="sites">
 <%= render :template => 'sites/index' %> 
 </div>
 
